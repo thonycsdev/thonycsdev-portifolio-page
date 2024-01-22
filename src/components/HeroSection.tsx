@@ -1,29 +1,45 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import Image from "next/image";
+import { TypeAnimation } from "react-type-animation";
 
 function HeroSection() {
   return (
     <section>
-      <div className="flex flex-col">
+      <div className="flex-col flex lg:flex-row lg:justify-center items-center">
         <div className="self-center">
           <h1 className="text-white mb-4 text-4xl  lg:text-6xl font-extrabold">
-            Hi, I'm <span className="text-[#64FFDA]">Anthony</span>
+            Olá, Eu sou{" "}
+            <span className="text-[#64FFDA]">
+              <br />
+              <TypeAnimation
+                sequence={[
+                  // Same substring at the start will only be typed out once, initially
+                  "Anthony",
+                  1000, // wait 1s before replacing "Mice" with "Hamsters"
+                  "Full Stack Developer",
+                  1000,
+                  "Backend Developer",
+                  1000,
+                ]}
+                wrapper="span"
+                speed={40}
+                repeat={Infinity}
+              />
+            </span>
           </h1>
-          <p className="text-[#ADB7BE] text-lg mb-6 lg:text-xl">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Voluptatibus a maiores aliquid illo suscipit asperiores,
-            exercitationem ratione consequuntur temporibus obcaecati id
-            voluptates numquam recusandae, nisi nostrum esse alias maxime earum?
+          <p className="text-white text-lg mb-6 lg:text-xl text-center lg:text-left">
+            Bem-vindo ao meu portfólio! Sou um desenvolvedor full stack com
+            enfase no backend. Espero que goste do meu trabalho!
           </p>
-        </div>
-        <div>
-          <button className="px-6 py-3 rounded-full mr-4 bg-white hover:bg-slate-200 text-black">
-            Hire Me
-          </button>
-          <button className="px-6 py-3 rounded-full mr-4 bg-transparent hover:bg-slate-800 text-white border border-white mt-3">
-            Download CV
-          </button>
+          <div className="mx-auto h-auto flex flex-col items-center justify-center lg:justify-start lg:flex-row">
+            <button className="px-6 py-3 rounded-full mr-4 bg-gradient-to-br from-emerald-700 via-emerald-400 to-lime-300 hover:bg-slate-200 text-white font-extrabold mt-3 w-3/5 max-w-96">
+              Hire Me
+            </button>
+            <button className="px-6 py-3 rounded-full mr-4 bg-transparent hover:bg-slate-800 text-white border w-3/5 max-w-96  border-white mt-3">
+              Download CV
+            </button>
+          </div>
         </div>
         <div className="self-center mt-4 lg:mt-0 mb-6">
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
