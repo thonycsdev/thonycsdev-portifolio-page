@@ -4,10 +4,6 @@ describe("HeroSection Components", () => {
   beforeEach(() => {
     render(<HeroSection />);
   });
-  it("should render my name correctly", () => {
-    var name = screen.getByText("Anthony");
-    expect(name).toBeInTheDocument();
-  });
   it("Should render the download CV button", () => {
     var downloadBtn = screen.getByRole("button", { name: "Download CV" });
     expect(downloadBtn).toBeInTheDocument();

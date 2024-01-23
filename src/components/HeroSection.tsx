@@ -10,20 +10,20 @@ function HeroSection() {
         <div className="self-center">
           <h1 className="text-white mb-4 text-4xl  lg:text-6xl font-extrabold">
             Olá, Eu sou{" "}
-            <span className="text-[#64FFDA]">
+            <span className="text-[#64FFDA] text-nowrap">
               <br />
               <TypeAnimation
                 sequence={[
                   // Same substring at the start will only be typed out once, initially
                   "Anthony",
                   1000, // wait 1s before replacing "Mice" with "Hamsters"
-                  "Full Stack Developer",
+                  "Full Stack",
                   1000,
-                  "Backend Developer",
+                  "Backend",
                   1000,
                 ]}
                 wrapper="span"
-                speed={40}
+                speed={60}
                 repeat={Infinity}
               />
             </span>
@@ -33,11 +33,19 @@ function HeroSection() {
             enfase no backend. Espero que goste do meu trabalho!
           </p>
           <div className="mx-auto h-auto flex flex-col items-center justify-center lg:justify-start lg:flex-row">
-            <button className="px-6 py-3 rounded-full mr-4 bg-gradient-to-br from-emerald-700 via-emerald-400 to-lime-300 hover:bg-slate-200 text-white font-extrabold mt-3 w-3/5 max-w-96">
+            <button
+              onClick={() => window.open(process.env.NEXT_PUBLIC_LINKEDIN_URL)}
+              className="px-6 py-3 rounded-full mr-4 bg-gradient-to-br from-emerald-700 via-emerald-400 to-lime-300 text-white font-extrabold mt-3 w-3/5 max-w-96 transition-all duration-300 ease-in hover:scale-105"
+            >
               Hire Me
             </button>
-            <button className="px-6 py-3 rounded-full mr-4 bg-transparent hover:bg-slate-800 text-white border w-3/5 max-w-96  border-white mt-3">
-              Download CV
+            <button
+              onClick={() => window.open(process.env.NEXT_PUBLIC_CV_DOWNLOAD)}
+              className="px-1 py-1 rounded-full mr-4 bg-transparent hover:bg-slate-800 text-white border bg-gradient-to-br from-lime-300 via-emerald-400 to-emerald-700 font-bold w-3/5 max-w-96 mt-3 transition-all duration-300 ease-in hover:scale-105"
+            >
+              <span className="block bg-[#121212] rounded-full px-5 py-2">
+                Download CV
+              </span>
             </button>
           </div>
         </div>
