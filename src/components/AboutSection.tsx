@@ -1,5 +1,5 @@
-import Image from "next/image";
 import React from "react";
+import Tabs from "./Tabs";
 
 function AboutSection() {
   return (
@@ -10,6 +10,7 @@ function AboutSection() {
         profissionalmente com programação com diversas linguagens e frameworks.{" "}
         <b>Bem-vindo!</b>
       </p>
+      <Tabs />
     </section>
   );
 }
