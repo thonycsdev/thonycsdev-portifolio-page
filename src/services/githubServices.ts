@@ -21,7 +21,7 @@ export class GithubServices implements IGithubServices {
       );
   }
   async getGithubRepoData(): Promise<AxiosResponse<GithubResponseType[]>> {
-    var data = axios.get("https://api.github.com/users/thonycsdev/repos");
+    var data = axios.get(process.env.GITHUB_URL!);
     return data;
   }
 }
