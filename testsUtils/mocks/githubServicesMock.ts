@@ -9,6 +9,7 @@ export default function mockGitHubServices() {
             data: [],
             status: 200,
           }),
+          getRepositoriesNames: jest.fn().mockResolvedValue([]),
         };
       }),
     };
