@@ -10,20 +10,20 @@ function HeroSection() {
         <div className="self-center">
           <h1 className="text-white mb-4 text-4xl  lg:text-6xl font-extrabold">
             Olá, Eu sou{" "}
-            <span className="text-[#64FFDA]">
+            <span className="text-[#64FFDA] text-nowrap">
               <br />
               <TypeAnimation
                 sequence={[
                   // Same substring at the start will only be typed out once, initially
                   "Anthony",
                   1000, // wait 1s before replacing "Mice" with "Hamsters"
-                  "Full Stack Developer",
+                  "Full Stack",
                   1000,
-                  "Backend Developer",
+                  "Backend",
                   1000,
                 ]}
                 wrapper="span"
-                speed={40}
+                speed={60}
                 repeat={Infinity}
               />
             </span>
