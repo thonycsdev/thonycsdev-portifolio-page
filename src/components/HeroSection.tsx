@@ -4,7 +4,6 @@ import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 
 function HeroSection() {
-  console.log(process.env.NEXT_PUBLIC_LINKEDIN_URL);
   return (
     <section>
       <div className="flex-col flex lg:flex-row lg:justify-center items-center">
