@@ -4,6 +4,7 @@ import { Tab } from "@/enums/TabTypes";
 import CertificationList from "./CertificationList";
 import ProjectList from "./ProjectList";
 import SkillList from "./SkillList";
+import EducationList from "./EducationList";
 
 type Props = {
   type: Tab;
@@ -17,7 +18,7 @@ function ContentComponent({ type, content }: Props) {
     case Tab.CERTIFICATIONS:
       return <CertificationList certifications={content.certifications} />;
     case Tab.EDUCATION:
-      return <div>Education</div>;
+      return <EducationList educations={content.education} />;
     case Tab.EXPERIENCE:
       return <div>Experience</div>;
     case Tab.PROJECTS:
