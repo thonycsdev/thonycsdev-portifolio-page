@@ -25,7 +25,7 @@ function ProjectCard({ project }: Props) {
           <div className="w-2/5 flex justify-center items-center">
             <button
               onClick={() => window.open(project.url!)}
-              className="flex flex-col w-2/5 h-20 flex justify-center items-center hover:scale-110 transition-all duration-200"
+              className="flex-col flex justify-center items-center hover:scale-110 transition-all duration-200"
             >
               <FaGithub className="w-3/4 h-3/4 text-emerald-400 " />
               <span className="text-emerald-400 text-xl font-semibold">
