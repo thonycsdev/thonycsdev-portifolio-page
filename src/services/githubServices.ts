@@ -17,6 +17,9 @@ export class GithubServices implements IGithubServices {
             name: item.name,
             description: item.description,
             url: item.html_url,
+            stars: item.stargazers_count,
+            technology: item.language,
+            watchers: item.watchers_count,
           } as Projects)
       );
   }

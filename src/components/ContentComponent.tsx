@@ -2,6 +2,7 @@ import React from "react";
 import { FullFormattedData } from "@/data/skills";
 import { Tab } from "@/enums/TabTypes";
 import CertificationList from "./CertificationList";
+import ProjectList from "./ProjectList";
 
 type Props = {
   type: Tab;
@@ -19,7 +20,7 @@ function ContentComponent({ type, content }: Props) {
     case Tab.EXPERIENCE:
       return <div>Experience</div>;
     case Tab.PROJECTS:
-      return <div>Projects</div>;
+      return <ProjectList projects={content.projects} />;
     case Tab.SKILLS:
       return <div>Skills</div>;
     default:

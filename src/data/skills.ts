@@ -24,7 +24,14 @@ export type Certifications = {
   dateStartedAndCompletion: string;
   url: string | null;
 };
-export type Projects = DataDescription;
+export type Projects = {
+  name: string;
+  url: string;
+  description: string;
+  technology: string;
+  stars: number;
+  watchers: number;
+};
 
 export type Content = {
   [key: string]: DataDescription[];
