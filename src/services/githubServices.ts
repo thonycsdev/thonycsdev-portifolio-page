@@ -2,6 +2,7 @@ import { Projects } from "@/data/skills";
 import IGithubServices from "./interfaces/IGithubServices";
 import axios, { AxiosResponse } from "axios";
 import { GithubResponseType } from "@/schemas/githubResponseType";
+import formatProjectName from "./uitls/formatProjectName";
 
 export class GithubServices implements IGithubServices {
   async getRepositoriesNames(): Promise<Projects[]> {
@@ -14,9 +15,12 @@ export class GithubServices implements IGithubServices {
       .map(
         (item) =>
           ({
-            name: item.name,
+            name: formatProjectName(item.name),
             description: item.description,
             url: item.html_url,
+            stars: item.stargazers_count,
+            technology: item.language,
+            watchers: item.watchers_count,
           } as Projects)
       );
   }
