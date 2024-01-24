@@ -3,6 +3,7 @@ import { FullFormattedData } from "@/data/skills";
 import { Tab } from "@/enums/TabTypes";
 import CertificationList from "./CertificationList";
 import ProjectList from "./ProjectList";
+import SkillList from "./SkillList";
 
 type Props = {
   type: Tab;
@@ -22,7 +23,7 @@ function ContentComponent({ type, content }: Props) {
     case Tab.PROJECTS:
       return <ProjectList projects={content.projects} />;
     case Tab.SKILLS:
-      return <div>Skills</div>;
+      return <SkillList skills={content.skills} />;
     default:
       return;
   }

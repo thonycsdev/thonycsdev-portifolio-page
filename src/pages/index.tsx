@@ -2,7 +2,6 @@ import AboutSection from "@/components/AboutSection";
 import HeroSection from "@/components/HeroSection";
 import Tabs from "@/components/Tabs";
 import { FullFormattedData, myContent } from "@/data/skills";
-import { useEffect } from "react";
 
 type Props = {
   data: FullFormattedData;
