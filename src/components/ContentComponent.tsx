@@ -1,11 +1,11 @@
 import React from "react";
 import { FullFormattedData } from "@/data/skills";
 import { Tab } from "@/enums/TabTypes";
-import CertificationList from "./CertificationList";
-import ProjectList from "./ProjectList";
-import SkillList from "./SkillList";
-import EducationList from "./EducationList";
-import ExperienceList from "./ExperienceList";
+import CertificationList from "./Certification/CertificationList";
+import ProjectList from "./Project/ProjectList";
+import SkillList from "./Skill/SkillList";
+import EducationList from "./Education/EducationList";
+import ExperienceList from "./Experience/ExperienceList";
 
 type Props = {
   type: Tab;
