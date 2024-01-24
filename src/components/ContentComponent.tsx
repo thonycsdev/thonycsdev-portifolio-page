@@ -1,7 +1,11 @@
-"use client";
-import React, { useState } from "react";
-import { Content, FullFormattedData } from "@/data/skills";
+import React from "react";
+import { FullFormattedData } from "@/data/skills";
 import { Tab } from "@/enums/TabTypes";
+import CertificationList from "./Certification/CertificationList";
+import ProjectList from "./Project/ProjectList";
+import SkillList from "./Skill/SkillList";
+import EducationList from "./Education/EducationList";
+import ExperienceList from "./Experience/ExperienceList";
 
 type Props = {
   type: Tab;
@@ -11,29 +15,20 @@ type Props = {
 function ContentComponent({ type, content }: Props) {
   if (!content) return <div className="text-white">Carregando...</div>;
 
-  return (
-    <div className="mt-10 text-white">
-      <ul className="flex flex-col gap-5">
-        {content[type].map((item, idx) => (
-          <li
-            key={idx}
-            onClick={() => item.url && window.open(item.url, "_blank")}
-            className="flex flex-col gap-3 border border-emerald-600 rounded-xl p-2 transition-all duration-200 hover:scale-110 max-w-full overscroll-contain"
-          >
-            <span>
-              <b>{item.name}</b>
-            </span>
-            {item.level && (
-              <span>
-                {type === Tab.EDUCATION ? "Ano: " : "Nivel: "} {item.level}
-              </span>
-            )}
-            <span> {item.description && `Descrição: ${item.description}`}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  switch (type) {
+    case Tab.CERTIFICATIONS:
+      return <CertificationList certifications={content.certifications} />;
+    case Tab.EDUCATION:
+      return <EducationList educations={content.education} />;
+    case Tab.EXPERIENCE:
+      return <ExperienceList experience={content.experience} />;
+    case Tab.PROJECTS:
+      return <ProjectList projects={content.projects} />;
+    case Tab.SKILLS:
+      return <SkillList skills={content.skills} />;
+    default:
+      return;
+  }
 }
 
 export default ContentComponent;

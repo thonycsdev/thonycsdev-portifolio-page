@@ -49,7 +49,9 @@ function Tabs({ data }: Props) {
           Projetos
         </TabButton>
       </div>
-      <ContentComponent type={tab} content={data} />
+      <div className="text-white">
+        <ContentComponent type={tab} content={data} />
+      </div>
     </div>
   );
 }

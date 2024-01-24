@@ -1,0 +1,30 @@
+[
+    {
+      "name": "Impar",
+      "level": "Junior",
+      "description": "Full Stack Developer",
+      "startedYear": "11/2022",
+      "endedYear": "11/2023"
+    },
+    {
+      "name": "Edubrahub",
+      "level": "Junior",
+      "description": "Full Stack Developer",
+      "startedYear": "06/2022",
+      "endedYear": "02/2023"
+    },
+    {
+      "name": "Freelancer",
+      "level": "Junior",
+      "description": "Full Stack Developer",
+      "startedYear": "06/2020",
+      "endedYear": "06/2021"
+    },
+    {
+      "name": "VD Tecnologia",
+      "level": "Estagiário",
+      "description": "Backend Developer",
+      "startedYear": "03/2020",
+      "endedYear": "06/2020"
+    }
+  ]
