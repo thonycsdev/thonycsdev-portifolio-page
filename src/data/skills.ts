@@ -16,8 +16,15 @@ export type DataDescription = {
 };
 
 export type Skills = DataDescription;
-export type Experience = DataDescription;
 export type Education = DataDescription;
+
+export type Experience = {
+  name: string;
+  level: string | null;
+  description: string | null;
+  startedYear: string;
+  endedYear: string | null;
+};
 export type Certifications = {
   name: string;
   hours: number;
@@ -33,9 +40,6 @@ export type Projects = {
   watchers: number;
 };
 
-export type Content = {
-  [key: string]: DataDescription[];
-};
 const mySkills: Skills[] = [
   {
     name: "C#",
@@ -218,30 +222,33 @@ const myExperience: Experience[] = [
     name: "Impar",
     level: "Junior",
     description: "Full Stack Developer",
-    url: null,
+    startedYear: "11/2022",
+    endedYear: "11/2023",
   },
   {
     name: "Edubrahub",
     level: "Junior",
     description: "Full Stack Developer",
-    url: null,
+    startedYear: "06/2022",
+    endedYear: "02/2023",
   },
   {
     name: "Freelancer",
     level: "Junior",
     description: "Full Stack Developer",
-    url: null,
+    startedYear: "06/2020",
+    endedYear: "06/2021",
   },
   {
     name: "VD Tecnologia",
     level: "Estagiário",
     description: "Backend Developer",
-    url: null,
+    startedYear: "03/2020",
+    endedYear: "06/2020",
   },
 ];
 
 const myEducation: Education[] = [
-  //trocar para time
   {
     name: "Bacharelado em Sistemas de Informação",
     level: "2017 - 2023",

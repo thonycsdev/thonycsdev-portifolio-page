@@ -5,6 +5,7 @@ import CertificationList from "./CertificationList";
 import ProjectList from "./ProjectList";
 import SkillList from "./SkillList";
 import EducationList from "./EducationList";
+import ExperienceList from "./ExperienceList";
 
 type Props = {
   type: Tab;
@@ -20,7 +21,7 @@ function ContentComponent({ type, content }: Props) {
     case Tab.EDUCATION:
       return <EducationList educations={content.education} />;
     case Tab.EXPERIENCE:
-      return <div>Experience</div>;
+      return <ExperienceList experience={content.experience} />;
     case Tab.PROJECTS:
       return <ProjectList projects={content.projects} />;
     case Tab.SKILLS:
