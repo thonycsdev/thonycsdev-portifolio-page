@@ -1,6 +1,6 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-	"name": "Untitled Node.js project",
+	"name": "Portfolio web Page",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
