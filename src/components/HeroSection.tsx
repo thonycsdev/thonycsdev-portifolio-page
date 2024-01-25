@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 
 function HeroSection() {
   return (
-    <section>
+    <section className="">
       <div className="flex-col flex lg:flex-row lg:justify-center items-center">
         <div className="self-center">
           <h1 className="text-white mb-4 text-4xl  lg:text-6xl font-extrabold">
@@ -30,7 +30,7 @@ function HeroSection() {
           </h1>
           <p className="text-white text-lg mb-6 lg:text-xl text-center lg:text-left">
             Bem-vindo ao meu portfólio! Sou um desenvolvedor full stack com
-            enfase no backend. Espero que goste do meu trabalho!
+            ênfase no backend. Espero que goste do meu trabalho!
           </p>
           <div className="mx-auto h-auto flex flex-col items-center justify-center lg:justify-start lg:flex-row">
             <button

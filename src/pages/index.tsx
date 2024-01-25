@@ -9,7 +9,7 @@ type Props = {
 export default function Home({ data }: Props) {
   return (
     <main className="flex min-h-screen flex-col bg-[#121212]">
-      <div className="mx-auto px-12 py-4">
+      <div className="px-12 py-4 w-full">
         <HeroSection />
         <AboutSection />
         <Tabs data={data} />
