@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import HeroSection from "@/components/HeroSection";
 import { render, screen } from "@testing-library/react";
 describe("HeroSection Components", () => {
