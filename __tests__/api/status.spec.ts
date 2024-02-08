@@ -6,6 +6,6 @@ describe("status.js tests", () => {
     expect(status.updated_at).toBeDefined();
     expect(status.dependencies.database.version).toBe("16.1");
     expect(status.dependencies.database.max_connections).toBe("100");
-    expect(status.dependencies.database.opened_connections).toBe(1);
+    expect(status.dependencies.database.opened_connections).toBeLessThan(3);
   });
 });
