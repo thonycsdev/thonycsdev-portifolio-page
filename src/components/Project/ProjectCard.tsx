@@ -1,4 +1,4 @@
-import { Projects } from "@/data/skills";
+import { Projects } from "../../../infra/data/skills";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";

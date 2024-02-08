@@ -1,4 +1,4 @@
-import { Projects } from "@/data/skills";
+import { Projects } from "../../infra/data/skills";
 import IGithubServices from "./interfaces/IGithubServices";
 import axios, { AxiosResponse } from "axios";
 import { GithubResponseType } from "@/schemas/githubResponseType";

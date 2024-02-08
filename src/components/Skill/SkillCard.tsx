@@ -1,4 +1,4 @@
-import { Skills } from "@/data/skills";
+import { Skills } from "../../../infra/data/skills";
 import React from "react";
 
 type Props = {

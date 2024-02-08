@@ -1,4 +1,4 @@
-import { Certifications } from "@/data/skills";
+import { Certifications } from "../../../infra/data/skills";
 import React from "react";
 import { PiCertificateDuotone } from "react-icons/pi";
 

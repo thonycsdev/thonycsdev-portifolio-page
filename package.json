@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "migration:run": "dotenv -e .env.development -- node-pg-migrate --migrations-dir ./infra/migrations up",
+    "migration:create": "node-pg-migrate --migrations-dir ./infra/migrations create",
+    "migration:down": "dotenv -e .env.development -- node-pg-migrate down --migrations-dir ./infra/migrations"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.17.19",
@@ -34,6 +37,8 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "dotenv": "^16.4.1",
+    "dotenv-cli": "^7.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "jest": "^29.7.0",
