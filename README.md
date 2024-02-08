@@ -1,40 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfólio
 
-## Getting Started
+Bem-vindo ao meu portfólio! Este projeto foi criado para destacar minhas habilidades, projetos e experiências profissionais. Sinta-se à vontade para explorar e conhecer mais sobre mim.
 
-First, run the development server:
+## Visão Geral
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Este portfólio foi desenvolvido utilizando [Next.js], [React.js], [Typescript], [PostgreSQL]. Ele inclui seções para apresentar meu perfil, habilidades técnicas, projetos e formas de entrar em contato comigo.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Conteúdo
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- **Resumo:** Uma breve descrição sobre mim e minhas paixões.
+- **Habilidades Técnicas:** Lista de habilidades técnicas que possuo.
+- **Projetos:** Destaques de projetos significativos que concluí.
+- **Experiência Profissional:** Uma visão geral da minha jornada profissional.
+- **Educação:** Detalhes sobre minha formação acadêmica.
+- **Contato:** Informações de contato para facilitar a comunicação.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Como Visualizar
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Clone o repositório: `git clone https://github.com/thonycsdev/thonycsdev-portifolio-page`
+2. Navegue até o diretório do projeto: `cd thonycsdev-portifolio-page`
+3. Abra o dev container
+4. No terminal do dev container, execute o comando `npm install`
+5. Após a instalação, execute o comando `npm run dev`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+6. Para executar os testes automatizados, complete a etapa 5 e execute `npm run test`
 
-## Learn More
+## Personalização
 
-To learn more about Next.js, take a look at the following resources:
+Sinta-se à vontade para bifurcar (fork) e personalizar este projeto de acordo com suas necessidades. Adicione seus próprios projetos, atualize as informações de contato e ajuste o design conforme desejado.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contribuições
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Contribuições são bem-vindas! Se você encontrar problemas ou tiver sugestões para melhorias, abra uma issue ou envie um pull request.
 
-## Deploy on Vercel
+## Contato
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Nome Completo:** Anthony Coutinho da Silva
+- **Email:** thonycout@gmail.com
+- **LinkedIn:** [Anthony Coutinho](https://www.linkedin.com/in/seu-linkedin/)
+- **GitHub:** [thonycsdev](https://github.com/seu-usuario)
+- **Website Production:** [.com.br](https:www.thonycsdev.com.br)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Obrigado por visitar meu portfólio!
