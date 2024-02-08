@@ -1,7 +1,7 @@
 import AboutSection from "@/components/AboutSection";
 import HeroSection from "@/components/HeroSection";
 import Tabs from "@/components/Tabs";
-import { FullFormattedData, myContent } from "@/data/skills";
+import { FullFormattedData, myContent } from "../../infra/data/skills";
 
 type Props = {
   data: FullFormattedData;

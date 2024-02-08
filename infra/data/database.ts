@@ -2,12 +2,12 @@ import { Client } from "pg";
 
 async function query(queryObject: { text: string; values?: any[] } | string) {
   const client = new Client({
-    database: process.env.DATABASE_USER,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    host: process.env.DATABASE_HOST,
-    port: process.env.DATABASE_PORT
-      ? parseInt(process.env.DATABASE_PORT)
+    database: process.env.POSTGRES_USER,
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    host: process.env.POSTGRES_HOST,
+    port: process.env.POSTGRES_PORT
+      ? parseInt(process.env.POSTGRES_PORT)
       : 5432,
   });
   try {

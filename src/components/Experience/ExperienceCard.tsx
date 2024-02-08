@@ -1,4 +1,4 @@
-import { Education, Experience } from "@/data/skills";
+import { Education, Experience } from "../../../infra/data/skills";
 import React from "react";
 type Props = {
   experience: Experience;

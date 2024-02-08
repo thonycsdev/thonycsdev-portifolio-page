@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
-import { Projects } from "@/data/skills";
+import { Projects } from "../../../infra/data/skills";
 
 type Props = {
   projects: Projects[];

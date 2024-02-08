@@ -2,7 +2,7 @@ import React, { useState, useTransition } from "react";
 import TabButton from "./TabButton";
 import ContentComponent from "./ContentComponent";
 import { Tab } from "@/enums/TabTypes";
-import { FullFormattedData } from "@/data/skills";
+import { FullFormattedData } from "../../infra/data/skills";
 type Props = {
   data: FullFormattedData;
 };

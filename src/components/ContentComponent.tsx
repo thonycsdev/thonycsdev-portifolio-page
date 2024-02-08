@@ -1,5 +1,5 @@
 import React from "react";
-import { FullFormattedData } from "@/data/skills";
+import { FullFormattedData } from "../../infra/data/skills";
 import { Tab } from "@/enums/TabTypes";
 import CertificationList from "./Certification/CertificationList";
 import ProjectList from "./Project/ProjectList";
