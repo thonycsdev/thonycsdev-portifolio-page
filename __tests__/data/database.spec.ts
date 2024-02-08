@@ -1,4 +1,4 @@
-import database from "@/data/database";
+import database from "../../infra/data/database";
 
 describe("database.js tests", () => {
   test("Should return the max connection of the database", async () => {

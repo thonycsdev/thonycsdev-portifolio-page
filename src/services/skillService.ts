@@ -1,4 +1,4 @@
-import { DataDescription, Skills } from "@/data/skills";
+import { DataDescription, Skills } from "../../infra/data/skills";
 import { ISkillServices } from "./interfaces/ISkillServices";
 export class SkillService implements ISkillServices {
   getSkills(): Promise<DataDescription[]> {

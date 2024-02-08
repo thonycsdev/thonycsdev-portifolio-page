@@ -1,4 +1,4 @@
-import { Education } from "@/data/skills";
+import { Education } from "../../../infra/data/skills";
 import React from "react";
 import EducationCart from "./EducationCart";
 type Props = {

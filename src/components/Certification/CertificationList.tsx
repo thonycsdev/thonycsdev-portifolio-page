@@ -1,4 +1,4 @@
-import { Certifications } from "@/data/skills";
+import { Certifications } from "../../../infra/data/skills";
 import React from "react";
 import CertificationCard from "./CertificationCard";
 
