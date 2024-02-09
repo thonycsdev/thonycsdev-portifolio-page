@@ -19,7 +19,7 @@ function CertificationCard({ certification }: Props) {
           </span>
         </div>
         <span className="text-white text-lg">
-          {certification.dateStartedAndCompletion}
+          {certification.date_started_and_completion}
         </span>
       </div>
       <div className="w-2/5 h-20 flex justify-center items-center">
