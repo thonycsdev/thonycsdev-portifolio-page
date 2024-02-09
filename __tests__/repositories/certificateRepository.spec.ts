@@ -1,5 +1,5 @@
 import IDatabase from "../../infra/data/IDatabase";
-import { Certifications } from "../../infra/data/skills";
+import { Certificate } from "../../infra/data/skills";
 import certificateRepository from "../../infra/repositories/CertificateRepository";
 
 describe("Certificate Repositories Tests", () => {
@@ -22,7 +22,7 @@ describe("Certificate Repositories Tests", () => {
   });
   test("Should insert the correct certificate calling the query method", async () => {
     var repository = new certificateRepository(databaseMock);
-    var certificateToInsert: Certifications = {
+    var certificateToInsert: Certificate = {
       name: "Certificate 1",
       date_started_and_completion: "2023 2024",
       hours: 10,

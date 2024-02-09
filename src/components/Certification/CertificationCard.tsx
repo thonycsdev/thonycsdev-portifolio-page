@@ -1,9 +1,9 @@
-import { Certifications } from "../../../infra/data/skills";
+import { Certificate } from "../../../infra/data/skills";
 import React from "react";
 import { PiCertificateDuotone } from "react-icons/pi";
 
 type Props = {
-  certification: Certifications;
+  certification: Certificate;
 };
 
 function CertificationCard({ certification }: Props) {

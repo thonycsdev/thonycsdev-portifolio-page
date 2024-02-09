@@ -1,7 +1,7 @@
-import { Certifications } from "../../data/skills";
+import { Certificate } from "../../data/skills";
 
 export default interface ICertificateRepository {
-  getCertificates(): Promise<Certifications[]>;
-  getCertificateById(id: number): Promise<Certifications>;
-  insertCertificate(input: Certifications): Promise<Certifications>;
+  getCertificates(): Promise<Certificate[]>;
+  getCertificateById(id: number): Promise<Certificate>;
+  insertCertificate(input: Certificate): Promise<Certificate>;
 }
