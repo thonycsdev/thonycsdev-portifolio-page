@@ -1,5 +1,6 @@
 import { Certifications } from "../../../infra/data/skills";
 
 export interface ICertificationServices {
-  getCertification: () => Promise<Certifications>;
+  getCertifications(): Promise<Certifications[]>;
+  getCertificationById(id: string): Promise<Certifications>;
 }

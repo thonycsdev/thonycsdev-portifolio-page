@@ -1,3 +1,5 @@
+import { dataRepositoryFactory } from "@/factories/dataRepositoryFactory";
+import { dataServicesFactory } from "@/factories/dataServicesFactory";
 import githubServicesFactory from "@/factories/githubServiceFactory";
 
 export type FullFormattedData = {
@@ -503,12 +505,14 @@ const myCertifications: Certifications[] = [
 
 export async function myContent(): Promise<FullFormattedData> {
   var githubServices = githubServicesFactory();
+  var { certificationService } = dataServicesFactory();
+  var certs = await certificationService.getCertifications();
   var projects = await githubServices.getRepositoriesNames();
   return {
     skills: mySkills,
     experience: myExperience,
     education: myEducation,
-    certifications: myCertifications,
+    certifications: certs,
     projects,
   };
 }
