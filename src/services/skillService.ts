@@ -1,7 +1,17 @@
-import { DataDescription, Skills } from "../../infra/data/skills";
+import { Skill } from "../../infra/data/skills";
+import ISkillRepository from "../../infra/repositories/interfaces/ISkillRepository";
 import { ISkillServices } from "./interfaces/ISkillServices";
 export class SkillService implements ISkillServices {
-  getSkills(): Promise<DataDescription[]> {
-    throw new Error("Method not implemented.");
+  constructor(private readonly skillRepository: ISkillRepository) {}
+
+  async getSkills(): Promise<Skill[]> {
+    const result = await this.skillRepository.getSkills();
+    return result;
+  }
+  async getSkillById(id: number): Promise<Skill> {
+    return await this.skillRepository.getSkillById(id);
+  }
+  async insertSkill(input: Skill): Promise<Skill> {
+    return await this.insertSkill(input);
   }
 }

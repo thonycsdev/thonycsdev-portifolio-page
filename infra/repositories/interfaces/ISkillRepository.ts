@@ -1,6 +1,6 @@
-import { Skill } from "../../../infra/data/skills";
+import { Skill } from "../../data/skills";
 
-export interface ISkillServices {
+export default interface ISkillRepository {
   getSkills(): Promise<Skill[]>;
   getSkillById(id: number): Promise<Skill>;
   insertSkill(input: Skill): Promise<Skill>;

@@ -1,8 +1,8 @@
-import { Skills } from "../../../infra/data/skills";
+import { Skill } from "../../../infra/data/skills";
 import React from "react";
 
 type Props = {
-  skill: Skills;
+  skill: Skill;
 };
 
 function SkillCard({ skill }: Props) {
