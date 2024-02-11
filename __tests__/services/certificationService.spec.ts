@@ -50,4 +50,20 @@ describe("Certification Service Tests", () => {
     expect(getCertificateById).toHaveBeenCalledWith(certificationMock.id);
     expect(result).toEqual(certificationMock);
   });
+
+  test("Should call the creation method from the repository", async () => {
+    const certificationMock = certificationFixture().createValidCertification();
+
+    const insertCertificate = jest.fn().mockResolvedValue(certificationMock);
+
+    const certificationRepoMock: ICertificateRepository = {
+      getCertificates: jest.fn(),
+      insertCertificate: insertCertificate,
+      getCertificateById: jest.fn(),
+    };
+
+    var certificateService = new CertificationService(certificationRepoMock);
+    await certificateService.insertCertification(certificationMock);
+    expect(insertCertificate).toHaveBeenCalledWith(certificationMock);
+  });
 });

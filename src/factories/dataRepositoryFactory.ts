@@ -1,4 +1,4 @@
-import CertificateRepository from "../../infra/repositories/CertificateRepository";
+import CertificateRepository from "../../infra/repositories/certificateRepository";
 import PostgresDatabase from "../../infra/data/database";
 
 export function dataRepositoryFactory() {
