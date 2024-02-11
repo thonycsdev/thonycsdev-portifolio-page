@@ -1,4 +1,3 @@
-import { dataRepositoryFactory } from "@/factories/dataRepositoryFactory";
 import { dataServicesFactory } from "@/factories/dataServicesFactory";
 import githubServicesFactory from "@/factories/githubServiceFactory";
 
@@ -273,9 +272,12 @@ const myEducation: Education[] = [
 ];
 
 export async function myContent(): Promise<FullFormattedData> {
+  const certs = await fetch("http://localhost:3000/api/v1/certificate").then(
+    (r) => r.json()
+  );
+
   var githubServices = githubServicesFactory();
-  var { certificationService } = dataServicesFactory();
-  var certs = await certificationService.getCertifications();
+
   var projects = await githubServices.getRepositoriesNames();
   return {
     skills: mySkills,

@@ -19,7 +19,16 @@ export default function Home({ data }: Props) {
 }
 
 export async function getServerSideProps() {
-  const data = await myContent();
-
+  const certs = await fetch("http://localhost:3000/api/v1/certificate").then(
+    (r) => r.json()
+  );
+  await myContent();
+  const data: FullFormattedData = {
+    certifications: certs,
+    education: [],
+    experience: [],
+    projects: [],
+    skills: [],
+  };
   return { props: { data } };
 }
