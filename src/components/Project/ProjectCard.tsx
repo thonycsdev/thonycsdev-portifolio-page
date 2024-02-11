@@ -1,11 +1,11 @@
-import { Projects } from "../../../infra/data/skills";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";
 import { FaEye } from "react-icons/fa";
+import { Project } from "@/models/project";
 
 type Props = {
-  project: Projects;
+  project: Project;
 };
 
 function ProjectCard({ project }: Props) {

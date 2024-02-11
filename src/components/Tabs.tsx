@@ -2,9 +2,9 @@ import React, { useState, useTransition } from "react";
 import TabButton from "./TabButton";
 import ContentComponent from "./ContentComponent";
 import { Tab } from "@/enums/TabTypes";
-import { FullFormattedData } from "../../infra/data/skills";
+import { FullPageInformationType } from "@/schemas/FullPageInformationType";
 type Props = {
-  data: FullFormattedData;
+  data: FullPageInformationType;
 };
 function Tabs({ data }: Props) {
   const [tab, setTab] = useState<Tab>(Tab.SKILLS);

@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watchAll",
+    "test:watch": "jest --watch",
     "migration:run": "dotenv -e .env -- node-pg-migrate --migrations-dir ./infra/migrations up",
     "migration:create": "node-pg-migrate --migrations-dir ./infra/migrations create",
     "migration:down": "dotenv -e .env -- node-pg-migrate down --migrations-dir ./infra/migrations"
@@ -27,6 +27,7 @@
     "react-type-animation": "^3.2.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@swc/core": "^1.3.105",
     "@swc/jest": "^0.2.31",
     "@testing-library/jest-dom": "^6.2.0",

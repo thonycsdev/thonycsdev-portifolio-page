@@ -1,6 +1,6 @@
 import React from "react";
 import ExperienceCard from "./ExperienceCard";
-import { Experience } from "../../../infra/data/skills";
+import { Experience } from "@/models/experience";
 
 type Props = {
   experience: Experience[];

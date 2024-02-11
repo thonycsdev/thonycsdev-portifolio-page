@@ -1,4 +1,4 @@
-import { Education, Experience } from "../../../infra/data/skills";
+import { Experience } from "@/models/experience";
 import React from "react";
 type Props = {
   experience: Experience;
@@ -19,7 +19,7 @@ function ExperienceCard({ experience }: Props) {
           </span>
         </div>
         <span className="text-lg">
-          {experience.startedYear} - {experience.endedYear}
+          {experience.started_year} - {experience.ended_year || "Present"}
         </span>
       </li>
     </div>
