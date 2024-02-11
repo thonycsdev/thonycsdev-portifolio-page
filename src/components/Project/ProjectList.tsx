@@ -1,9 +1,9 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
-import { Projects } from "../../../infra/data/skills";
+import { Project } from "@/models/project";
 
 type Props = {
-  projects: Projects[];
+  projects: Project[];
 };
 function ProjectList({ projects }: Props) {
   return (

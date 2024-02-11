@@ -1,9 +1,9 @@
 import React from "react";
-import { Skills } from "../../../infra/data/skills";
 import SkillCard from "./SkillCard";
+import { Skill } from "@/models/skill";
 
 type Props = {
-  skills: Skills[];
+  skills: Skill[];
 };
 function SkillList({ skills }: Props) {
   return (

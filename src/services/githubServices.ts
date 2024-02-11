@@ -1,11 +1,11 @@
-import { Projects } from "../../infra/data/skills";
 import IGithubServices from "./interfaces/IGithubServices";
 import axios, { AxiosResponse } from "axios";
 import { GithubResponseType } from "@/schemas/githubResponseType";
 import formatProjectName from "./uitls/formatProjectName";
+import { Project } from "@/models/project";
 
 export class GithubServices implements IGithubServices {
-  async getRepositoriesNames(): Promise<Projects[]> {
+  async getRepositoriesNames(): Promise<Project[]> {
     var repoData = await this.getGithubRepoData();
     return repoData.data
       .sort(
@@ -21,7 +21,7 @@ export class GithubServices implements IGithubServices {
             stars: item.stargazers_count,
             technology: item.language,
             watchers: item.watchers_count,
-          } as Projects)
+          } as Project)
       );
   }
   async getGithubRepoData(): Promise<AxiosResponse<GithubResponseType[]>> {

@@ -1,5 +1,7 @@
-import { Experience } from "../../../infra/data/skills";
+import { Experience } from "@/models/experience";
 
 export interface IExperienceServices {
-  getExperience: () => Promise<Experience>;
+  getExperiences(): Promise<Experience[]>;
+  getExperienceById(id: number): Promise<Experience>;
+  insertExperience(input: Experience): Promise<Experience>;
 }

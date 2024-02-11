@@ -1,5 +1,7 @@
-import { Skills } from "../../../infra/data/skills";
+import { Skill } from "@/models/skill";
 
 export interface ISkillServices {
-  getSkills(): Promise<Skills[]>;
+  getSkills(): Promise<Skill[]>;
+  getSkillById(id: number): Promise<Skill>;
+  insertSkill(input: Skill): Promise<Skill>;
 }

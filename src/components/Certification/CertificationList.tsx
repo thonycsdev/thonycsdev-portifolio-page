@@ -1,9 +1,9 @@
-import { Certifications } from "../../../infra/data/skills";
 import React from "react";
 import CertificationCard from "./CertificationCard";
+import { Certificate } from "@/models/certificate";
 
 type Props = {
-  certifications: Certifications[];
+  certifications: Certificate[];
 };
 
 function CertificationList({ certifications }: Props) {

@@ -1,10 +1,11 @@
 import AboutSection from "@/components/AboutSection";
 import HeroSection from "@/components/HeroSection";
 import Tabs from "@/components/Tabs";
-import { FullFormattedData, myContent } from "../../infra/data/skills";
+import { FullPageInformationType } from "@/schemas/FullPageInformationType";
+import DataFetcher from "@/services/DataFetcher";
 
 type Props = {
-  data: FullFormattedData;
+  data: FullPageInformationType;
 };
 export default function Home({ data }: Props) {
   return (
@@ -19,7 +20,7 @@ export default function Home({ data }: Props) {
 }
 
 export async function getServerSideProps() {
-  const data = await myContent();
-
+  const dataFetcher = new DataFetcher();
+  const data = await dataFetcher.fetchMyContent();
   return { props: { data } };
 }
