@@ -8,12 +8,11 @@ Este portfólio foi desenvolvido utilizando [Next.js], [React.js], [Typescript],
 
 ## Conteúdo
 
-- **Resumo:** Uma breve descrição sobre mim e minhas paixões.
-- **Habilidades Técnicas:** Lista de habilidades técnicas que possuo.
-- **Projetos:** Destaques de projetos significativos que concluí.
+- **Certificados:** Minha lista de certificados que concluí.
+- **Projetos** Destaques de projetos significativos que concluí.
 - **Experiência Profissional:** Uma visão geral da minha jornada profissional.
 - **Educação:** Detalhes sobre minha formação acadêmica.
-- **Contato:** Informações de contato para facilitar a comunicação.
+- **Habilidades:** Lista de habilidades técnicas que possuo.
 
 ## Como Visualizar
 
@@ -25,10 +24,6 @@ Este portfólio foi desenvolvido utilizando [Next.js], [React.js], [Typescript],
 
 6. Para executar os testes automatizados, complete a etapa 5 e execute `npm run test`
 
-## Personalização
-
-Sinta-se à vontade para bifurcar (fork) e personalizar este projeto de acordo com suas necessidades. Adicione seus próprios projetos, atualize as informações de contato e ajuste o design conforme desejado.
-
 ## Contribuições
 
 Contribuições são bem-vindas! Se você encontrar problemas ou tiver sugestões para melhorias, abra uma issue ou envie um pull request.
@@ -39,6 +34,6 @@ Contribuições são bem-vindas! Se você encontrar problemas ou tiver sugestõe
 - **Email:** thonycout@gmail.com
 - **LinkedIn:** [Anthony Coutinho](https://www.linkedin.com/in/seu-linkedin/)
 - **GitHub:** [thonycsdev](https://github.com/seu-usuario)
-- **Website Production:** [.com.br](https:www.thonycsdev.com.br)
+- **Website Production:** [thonycsdev.com.br](https:www.thonycsdev.com.br)
 
 Obrigado por visitar meu portfólio!
