@@ -1,5 +1,5 @@
+import { Certificate } from "@/models/certificate";
 import IDatabase from "../data/IDatabase";
-import { Certificate } from "../data/skills";
 import ICertificateRepository from "./interfaces/ICertificateRepository";
 
 export default class CertificateRepository implements ICertificateRepository {

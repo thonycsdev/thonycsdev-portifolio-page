@@ -1,4 +1,4 @@
-import { Skill } from "../../data/skills";
+import { Skill } from "@/models/skill";
 
 export default interface ISkillRepository {
   getSkills(): Promise<Skill[]>;

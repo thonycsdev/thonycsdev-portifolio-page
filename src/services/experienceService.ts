@@ -1,4 +1,4 @@
-import { Experience } from "../../infra/data/skills";
+import { Experience } from "@/models/experience";
 import IExperienceRepository from "../../infra/repositories/interfaces/IExperienceRepository";
 import { IExperienceServices } from "./interfaces/IExperienceServices";
 

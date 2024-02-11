@@ -1,4 +1,4 @@
-import { Education } from "../../data/skills";
+import { Education } from "@/models/education";
 
 export default interface IEducationRepository {
   getEducations(): Promise<Education[]>;

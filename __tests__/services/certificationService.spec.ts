@@ -1,8 +1,8 @@
-import { Certificate } from "../../infra/data/skills";
 import ICertificateRepository from "../../infra/repositories/interfaces/ICertificateRepository";
 import CertificationService from "@/services/certificationService";
 import certificationFixture from "../../testsUtils/mocks/CertificationFixture";
 import { faker } from "@faker-js/faker";
+import { Certificate } from "@/models/certificate";
 describe("Certification Service Tests", () => {
   test("Get Certifications must be ordered by hours", async () => {
     const { createCertificationList } = certificationFixture();

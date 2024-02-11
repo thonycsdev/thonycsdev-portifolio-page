@@ -1,4 +1,4 @@
-import { Skill } from "../../infra/data/skills";
+import { Skill } from "@/models/skill";
 import ISkillRepository from "../../infra/repositories/interfaces/ISkillRepository";
 import { ISkillServices } from "./interfaces/ISkillServices";
 export class SkillService implements ISkillServices {

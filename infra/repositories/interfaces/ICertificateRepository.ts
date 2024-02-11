@@ -1,4 +1,4 @@
-import { Certificate } from "../../data/skills";
+import { Certificate } from "@/models/certificate";
 
 export default interface ICertificateRepository {
   getCertificates(): Promise<Certificate[]>;

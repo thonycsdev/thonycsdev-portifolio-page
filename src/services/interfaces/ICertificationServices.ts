@@ -1,4 +1,4 @@
-import { Certificate } from "../../../infra/data/skills";
+import { Certificate } from "@/models/certificate";
 
 export interface ICertificationServices {
   getCertifications(): Promise<Certificate[]>;

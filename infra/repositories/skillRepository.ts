@@ -1,5 +1,5 @@
+import { Skill } from "@/models/skill";
 import IDatabase from "../data/IDatabase";
-import { Skill } from "../data/skills";
 import ISkillRepository from "./interfaces/ISkillRepository";
 
 export default class SkillRepository implements ISkillRepository {

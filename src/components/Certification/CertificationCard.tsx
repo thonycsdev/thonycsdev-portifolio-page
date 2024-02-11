@@ -1,4 +1,4 @@
-import { Certificate } from "../../../infra/data/skills";
+import { Certificate } from "@/models/certificate";
 import React from "react";
 import { PiCertificateDuotone } from "react-icons/pi";
 

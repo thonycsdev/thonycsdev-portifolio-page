@@ -1,6 +1,6 @@
 import React from "react";
-import { Skill } from "../../../infra/data/skills";
 import SkillCard from "./SkillCard";
+import { Skill } from "@/models/skill";
 
 type Props = {
   skills: Skill[];

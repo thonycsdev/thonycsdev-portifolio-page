@@ -1,6 +1,5 @@
+import { Certificate } from "@/models/certificate";
 import { faker } from "@faker-js/faker";
-import { Certificate } from "../../infra/data/skills";
-import ICertificateRepository from "../../infra/repositories/interfaces/ICertificateRepository";
 
 export default function certificationFixture() {
   function createCertificationList(amount: number) {
@@ -14,6 +13,8 @@ export default function certificationFixture() {
   function createValidCertification() {
     var certificationMock: Certificate = {
       id: faker.number.int(),
+      level: "Basic",
+      description: faker.lorem.sentence(),
       hours: faker.number.int(),
       name: faker.company.name(),
       date_started_and_completion: faker.date.recent().toDateString(),

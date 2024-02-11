@@ -1,15 +1,15 @@
 import React from "react";
-import { FullFormattedData } from "../../infra/data/skills";
 import { Tab } from "@/enums/TabTypes";
 import CertificationList from "./Certification/CertificationList";
 import ProjectList from "./Project/ProjectList";
 import SkillList from "./Skill/SkillList";
 import EducationList from "./Education/EducationList";
 import ExperienceList from "./Experience/ExperienceList";
+import { FullPageInformationType } from "@/schemas/FullPageInformationType";
 
 type Props = {
   type: Tab;
-  content: FullFormattedData;
+  content: FullPageInformationType;
 };
 
 function ContentComponent({ type, content }: Props) {

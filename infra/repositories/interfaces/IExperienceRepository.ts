@@ -1,4 +1,4 @@
-import { Experience } from "../../data/skills";
+import { Experience } from "@/models/experience";
 
 export default interface IExperienceRepository {
   getExperiences(): Promise<Experience[]>;

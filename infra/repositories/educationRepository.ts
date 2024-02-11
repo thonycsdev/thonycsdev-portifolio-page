@@ -1,5 +1,5 @@
+import { Education } from "@/models/education";
 import IDatabase from "../data/IDatabase";
-import { Education } from "../data/skills";
 import IEducationRepository from "./interfaces/IEducationRepository";
 
 export default class EducationRepository implements IEducationRepository {

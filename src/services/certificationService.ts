@@ -1,4 +1,4 @@
-import { Certificate } from "../../infra/data/skills";
+import { Certificate } from "@/models/certificate";
 import ICertificateRepository from "../../infra/repositories/interfaces/ICertificateRepository";
 import { ICertificationServices } from "./interfaces/ICertificationServices";
 

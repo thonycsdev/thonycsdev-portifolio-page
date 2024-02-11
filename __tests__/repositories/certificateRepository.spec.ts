@@ -1,5 +1,5 @@
+import { Certificate } from "@/models/certificate";
 import IDatabase from "../../infra/data/IDatabase";
-import { Certificate } from "../../infra/data/skills";
 import certificateRepository from "../../infra/repositories/certificateRepository";
 
 describe("Certificate Repositories Tests", () => {

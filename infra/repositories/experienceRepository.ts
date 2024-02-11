@@ -1,5 +1,5 @@
+import { Experience } from "@/models/experience";
 import IDatabase from "../data/IDatabase";
-import { Experience } from "../data/skills";
 import IExperienceRepository from "./interfaces/IExperienceRepository";
 
 export default class ExperienceRepository implements IExperienceRepository {
