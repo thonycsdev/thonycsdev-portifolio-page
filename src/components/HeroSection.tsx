@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
+import SwitchButton from "./UI/SwitchButton";
 
 function HeroSection() {
   return (
@@ -28,6 +29,9 @@ function HeroSection() {
               />
             </span>
           </h1>
+          <div className="absolute top-4 right-0 p-4">
+            <SwitchButton />
+          </div>
           <p className="text-white text-lg mb-6 lg:text-xl text-center lg:text-left">
             Bem-vindo ao meu portfólio! Sou um desenvolvedor full stack com
             ênfase no backend. Espero que goste do meu trabalho!
