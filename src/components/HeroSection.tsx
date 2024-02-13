@@ -1,10 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import SwitchButton from "./UI/SwitchButton";
+import { TranslationContext } from "./Context/TranslationContext";
 
 function HeroSection() {
+  const { language } = useContext(TranslationContext);
   return (
     <section className="">
       <div className="flex-col flex lg:flex-row lg:justify-center items-center">
@@ -41,7 +43,7 @@ function HeroSection() {
               onClick={() => window.open(process.env.NEXT_PUBLIC_LINKEDIN_URL)}
               className="px-6 py-3 rounded-full mr-4 bg-gradient-to-br from-emerald-700 via-emerald-400 to-lime-300 text-white font-extrabold mt-3 w-3/5 max-w-96 transition-all duration-300 ease-in hover:scale-105"
             >
-              Hire Me
+              {language.hireMe}
             </button>
             <button
               onClick={() => window.open(process.env.NEXT_PUBLIC_CV_DOWNLOAD)}
