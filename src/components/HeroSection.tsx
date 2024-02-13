@@ -12,7 +12,7 @@ function HeroSection() {
       <div className="flex-col flex lg:flex-row lg:justify-center items-center">
         <div className="self-center">
           <h1 className="text-white mb-4 text-4xl  lg:text-6xl font-extrabold">
-            Olá, Eu sou{" "}
+            {language.greetingsLabel}{" "}
             <span className="text-[#64FFDA] text-nowrap">
               <br />
               <TypeAnimation
@@ -35,8 +35,7 @@ function HeroSection() {
             <SwitchButton />
           </div>
           <p className="text-white text-lg mb-6 lg:text-xl text-center lg:text-left">
-            Bem-vindo ao meu portfólio! Sou um desenvolvedor full stack com
-            ênfase no backend. Espero que goste do meu trabalho!
+            {language.welcomeLabel}
           </p>
           <div className="mx-auto h-auto flex flex-col items-center justify-center lg:justify-start lg:flex-row">
             <button
@@ -50,7 +49,7 @@ function HeroSection() {
               className="px-1 py-1 rounded-full mr-4 bg-transparent hover:bg-slate-800 text-white border bg-gradient-to-br from-lime-300 via-emerald-400 to-emerald-700 font-bold w-3/5 max-w-96 mt-3 transition-all duration-300 ease-in hover:scale-105"
             >
               <span className="block bg-[#121212] rounded-full px-5 py-2">
-                Download CV
+                {language.downloadCVLabel}
               </span>
             </button>
           </div>

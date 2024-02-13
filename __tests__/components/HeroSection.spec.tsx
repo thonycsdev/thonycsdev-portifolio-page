@@ -4,7 +4,7 @@
 
 import { TranslationContext } from "@/components/Context/TranslationContext";
 import HeroSection from "@/components/HeroSection";
-import { br, en } from "@/translations/IConstantsTexts";
+import { Language, br, en } from "@/translations/IConstantsTexts";
 import { cleanup, render, screen } from "@testing-library/react";
 describe("HeroSection Components", () => {
   beforeEach(() => {
@@ -26,7 +26,11 @@ describe("HeroSection Components", () => {
     cleanup();
     render(
       <TranslationContext.Provider
-        value={{ changeTranslation: jest.fn(), language: en }}
+        value={{
+          changeTranslation: jest.fn(),
+          language: en,
+          currentLanguage: Language.en,
+        }}
       >
         <HeroSection />
       </TranslationContext.Provider>
