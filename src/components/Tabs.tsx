@@ -1,12 +1,14 @@
-import React, { useState, useTransition } from "react";
+import React, { useContext, useState, useTransition } from "react";
 import TabButton from "./TabButton";
 import ContentComponent from "./ContentComponent";
 import { Tab } from "@/enums/TabTypes";
 import { FullPageInformationType } from "@/schemas/FullPageInformationType";
+import { TranslationContext } from "./Context/TranslationContext";
 type Props = {
   data: FullPageInformationType;
 };
 function Tabs({ data }: Props) {
+  const { language } = useContext(TranslationContext);
   const [tab, setTab] = useState<Tab>(Tab.SKILLS);
   const [isPending, startTrans] = useTransition();
 
@@ -22,31 +24,31 @@ function Tabs({ data }: Props) {
           active={tab === Tab.SKILLS}
           selectTab={() => handleTabChange(Tab.SKILLS)}
         >
-          Habilidades
+          {language.skillsLabel}
         </TabButton>
         <TabButton
           active={tab === Tab.EDUCATION}
           selectTab={() => handleTabChange(Tab.EDUCATION)}
         >
-          Educação
+          {language.educationLabel}
         </TabButton>
         <TabButton
           active={tab === Tab.EXPERIENCE}
           selectTab={() => handleTabChange(Tab.EXPERIENCE)}
         >
-          Experiência
+          {language.experienceLabel}
         </TabButton>
         <TabButton
           active={tab === Tab.CERTIFICATIONS}
           selectTab={() => handleTabChange(Tab.CERTIFICATIONS)}
         >
-          Certificações
+          {language.certificateLabel}
         </TabButton>
         <TabButton
           active={tab === Tab.PROJECTS}
           selectTab={() => handleTabChange(Tab.PROJECTS)}
         >
-          Projetos
+          {language.projectsLabel}
         </TabButton>
       </div>
       <div className="text-white">

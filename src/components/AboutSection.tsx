@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TranslationContext } from "./Context/TranslationContext";
 
 function AboutSection() {
+  const { language } = useContext(TranslationContext);
   return (
     <section className="text-white mt-10 flex flex-col items-center justify-center">
-      <h2 className="text-4xl font-extrabold mb-2">Sobre mim</h2>
+      <h2 className="text-4xl font-extrabold mb-2">{language.aboutMeLabel}</h2>
       <p className="text-center">
-        Olá ✌️. Sou o Anthony Coutinho, tenho 25 anos e trabalho há dois anos
-        com programação em diversas linguagens e frameworks.{` `}
+        {language.shortAboutMe}
+        {` `}
         <br />
       </p>
-      <b className="mt-5">Bem-vindo(a)!</b>
+      <b className="mt-5">{language.welcomeToMySkills}</b>
     </section>
   );
 }
