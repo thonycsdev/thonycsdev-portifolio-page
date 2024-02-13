@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { TranslationContext } from "../Context/TranslationContext";
+import { Language } from "@/translations/IConstantsTexts";
 
 function SwitchButton() {
   const [isChecked, setIsChecked] = useState(false);
+  const { changeTranslation } = useContext(TranslationContext);
+
   function onClickCheckbox() {
-    setIsChecked((old) => !old);
+    setIsChecked(!isChecked);
   }
+  useEffect(() => {
+    if (isChecked) {
+      changeTranslation(Language.en);
+    } else {
+      changeTranslation(Language.br);
+    }
+  });
   return (
     <label className="relative inline-flex items-center cursor-pointer">
       <input
