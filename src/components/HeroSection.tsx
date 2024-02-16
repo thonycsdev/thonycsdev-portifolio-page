@@ -4,7 +4,7 @@ import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import SwitchButton from "./UI/SwitchButton";
 import { TranslationContext } from "./Context/TranslationContext";
-
+import { motion } from "framer-motion";
 function HeroSection() {
   const { language } = useContext(TranslationContext);
   return (
@@ -54,7 +54,16 @@ function HeroSection() {
             </button>
           </div>
         </div>
-        <div className="self-center mt-4 lg:mt-0 mb-6">
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 1,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          className="self-center mt-4 lg:mt-0 mb-6"
+        >
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
             <Image
               alt="avatar"
@@ -64,7 +73,7 @@ function HeroSection() {
               className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
