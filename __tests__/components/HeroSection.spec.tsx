@@ -8,14 +8,27 @@ import { Language, br, en } from "@/translations/IConstantsTexts";
 import { cleanup, render, screen } from "@testing-library/react";
 describe("HeroSection Components", () => {
   beforeEach(() => {
-    render(<HeroSection />);
+    render(
+      <TranslationContext.Provider
+        value={{
+          language: br,
+          changeTranslation: jest.fn(),
+          currentLanguage: Language.br,
+        }}
+      >
+        <HeroSection />
+      </TranslationContext.Provider>
+    );
   });
-  it("Should render the download CV button", () => {
-    var downloadBtn = screen.getByRole("button", { name: "Download CV" });
+
+  it("Should render the download CV button", async () => {
+    var downloadBtn = await screen.findByRole("button", {
+      name: br.downloadCVLabel,
+    });
     expect(downloadBtn).toBeInTheDocument();
   });
   it("Should render the Me Contrate button", () => {
-    var downloadBtn = screen.getByRole("button", { name: "Me Contrate" });
+    var downloadBtn = screen.getByRole("button", { name: br.hireMe });
     expect(downloadBtn).toBeInTheDocument();
   });
   it("Should render My Logo", () => {
