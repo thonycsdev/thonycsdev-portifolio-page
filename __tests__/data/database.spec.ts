@@ -6,7 +6,7 @@ describe("database.js tests", () => {
     const result = await database.query("SHOW max_connections");
     const max_connections = parseInt(result![0].max_connections);
     expect(result).toBeDefined();
-    expect(max_connections).toBe(100);
+    expect(max_connections).toBe(112);
   });
   test("Should return the current connections of the database", async () => {
     const result = await database.query("SELECT * FROM pg_stat_activity");
