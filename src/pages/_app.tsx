@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Analytics } from "@vercel/analytics/react";
 import { TranslationContextProvider } from "@/components/Context/TranslationContext";
-import { Gilda_Display, Inter } from 'next/font/google'
+import { Gilda_Display } from 'next/font/google'
 
 const gilda = Gilda_Display({
   weight: "400",
