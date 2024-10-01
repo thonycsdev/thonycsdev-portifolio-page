@@ -5,14 +5,73 @@ import { Project } from "@/models/project";
 type Props = {
   projects: Project[];
 };
-function ProjectList({ projects }: Props) {
+function FeaturedProjectsComponents({ projects }: Props) {
+  if (projects.length === 0) {
+    projects = [{
+      id: 1,
+      url: "",
+      name: "batatinha",
+      level: "Avancado",
+      stars: 43,
+      watchers: 3,
+      endedYear: "2023",
+      technology: "C#",
+      description: "esparrama",
+      startedYear: "2024"
+    }, {
+      id: 1,
+      url: "",
+      name: "batatinha",
+      level: "Avancado",
+      stars: 43,
+      watchers: 3,
+      endedYear: "2023",
+      technology: "C#",
+      description: "esparrama",
+      startedYear: "2024"
+    }, {
+      id: 1,
+      url: "",
+      name: "batatinha",
+      level: "Avancado",
+      stars: 43,
+      watchers: 3,
+      endedYear: "2023",
+      technology: "C#",
+      description: "esparrama",
+      startedYear: "2024"
+    }, {
+      id: 1,
+      url: "",
+      name: "batatinha",
+      level: "Avancado",
+      stars: 43,
+      watchers: 3,
+      endedYear: "2023",
+      technology: "C#",
+      description: "esparrama",
+      startedYear: "2024"
+    }, {
+      id: 1,
+      url: "",
+      name: "batatinha",
+      level: "Avancado",
+      stars: 43,
+      watchers: 3,
+      endedYear: "2023",
+      technology: "C#",
+      description: "esparrama",
+      startedYear: "2024"
+    },]
+  }
   return (
-    <ul className="flex flex-col gap-5 mt-10">
+    <div className="grid grid-flow-row gap-3">
+      Projetos em Destaque
       {projects.map((x, idx) => (
         <ProjectCard project={x} key={idx} />
       ))}
-    </ul>
+    </div>
   );
 }
 
-export default ProjectList;
+export default FeaturedProjectsComponents;

@@ -15,6 +15,7 @@ const config: Config = {
       },
       colors: {
         "paper-background": "#f2eddb",
+        "paper-darker": "#E7DEBC",
       },
     },
   },
