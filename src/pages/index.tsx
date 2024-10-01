@@ -1,26 +1,24 @@
 import AboutSection from "@/components/AboutSection";
-import HeroSection from "@/components/HeroSection";
-import Tabs from "@/components/Tabs";
-import { FullPageInformationType } from "@/schemas/FullPageInformationType";
-import DataFetcher from "@/services/DataFetcher";
+import HomeCardComponent from "@/components/UI/HomeCardComponent";
 
-type Props = {
-  data: FullPageInformationType;
-};
-export default function Home({ data }: Props) {
+export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#121212]">
-      <div className="px-12 py-4 w-full">
-        <HeroSection />
-        <AboutSection />
-        <Tabs data={data} />
+    <main className="h-full md:h-screen bg-paper-background flex flex-col justify-center items-start p-10 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-5 gap-3">
+        <div className="row-span-2 md:row-span-3 ">
+          <HomeCardComponent content={<AboutSection />} />
+        </div>
+        <div>
+          <HomeCardComponent content={<AboutSection />} />
+        </div>
+        <div>
+          <HomeCardComponent content={<AboutSection />} />
+        </div>
+        <div>
+          <HomeCardComponent content={<AboutSection />} />
+        </div>
       </div>
     </main>
   );
 }
 
-export async function getServerSideProps() {
-  const dataFetcher = new DataFetcher();
-  const data = await dataFetcher.fetchMyContent();
-  return { props: { data } };
-}
