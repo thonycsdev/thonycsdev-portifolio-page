@@ -11,7 +11,7 @@ function HeroSection() {
     <section className="">
       <div className="flex-col flex lg:flex-row lg:justify-center items-center">
         <div className="self-center">
-          <h1 className="text-white mb-4 text-4xl  lg:text-6xl font-extrabold">
+          <h1 className="mb-4 text-4xl  lg:text-6xl font-extrabold">
             {language.greetingsLabel}{" "}
             <span className="text-[#64FFDA] text-nowrap">
               <br />
@@ -34,7 +34,7 @@ function HeroSection() {
           <div className="absolute top-4 right-0 p-4">
             <SwitchButton />
           </div>
-          <p className="text-white text-lg mb-6 lg:text-xl text-center lg:text-left">
+          <p className="text-lg mb-6 lg:text-xl text-center lg:text-left">
             {language.welcomeLabel}
           </p>
           <div className="mx-auto h-auto flex flex-col items-center justify-center lg:justify-start lg:flex-row">
