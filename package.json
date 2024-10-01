@@ -9,15 +9,17 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "services:up":"docker compose -f infra/docker-compose.yml up -d",
-    "services:stop":"docker compose -f infra/docker-compose.yml stop",
-    "services:down":"docker compose -f infra/docker-compose.yml down",
+    "services:up": "docker compose -f infra/docker-compose.yml up -d",
+    "services:stop": "docker compose -f infra/docker-compose.yml stop",
+    "services:down": "docker compose -f infra/docker-compose.yml down",
     "test:watch": "jest --watch",
     "migration:run": "dotenv -e .env -- node-pg-migrate --migrations-dir ./infra/migrations up",
     "migration:create": "node-pg-migrate --migrations-dir ./infra/migrations create",
     "migration:down": "dotenv -e .env -- node-pg-migrate down --migrations-dir ./infra/migrations"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@tanstack/react-query": "^5.17.19",
     "@vercel/analytics": "^1.1.2",
     "axios": "^1.6.5",
@@ -26,8 +28,7 @@
     "pg": "^8.11.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^5.0.1",
-    "react-type-animation": "^3.2.0"
+    "react-icons": "^5.0.1"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",

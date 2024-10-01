@@ -4,7 +4,7 @@ import HomeCardComponent from "@/components/UI/HomeCardComponent";
 
 export default function Home() {
   return (
-    <main className="h-full md:h-screen bg-paper-background flex flex-col justify-center items-start md:p-40 p-5">
+    <main className="h-full md:h-screen bg-gradient-to-br from-[#E7DEBC] to-paper-background flex flex-col justify-center items-start md:p-40 p-5 font-medium">
       <div className="grid grid-cols-1 md:grid-cols-3 grid-flow-row gap-3">
         <div className="md:col-start-1 md:col-end-3">
           <HomeCardComponent content={<HeroSection />} />
