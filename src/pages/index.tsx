@@ -16,17 +16,17 @@ export default function Home() {
         <div className="md:row-span-2 md:w-2/3">
           <HomeCardComponent content={<AboutSection />} />
         </div>
-        <div className="md:col-span-2 h-full w-full grid md:grid-cols-4 grid-cols-2 gap-5 grid-flow-row">
+        <div className="md:col-span-2 h-full w-full grid md:grid-cols-4 gap-5 grid-flow-row">
           <div className="">
             <HomeCardComponent content={<EducationComponent />} />
           </div>
-          <div className="row-start-1 row-end-1 col-span-2">
+          <div className="md:row-start-1 md:row-end-1 md:col-span-2">
             <HomeCardComponent content={<CareerComponent />} />
           </div>
-          <div className="row-start-1 row-end-2">
+          <div className="md:row-start-1 md:row-end-2">
             <HomeCardComponent content={<FeaturedProjectsComponents projects={[]} />} />
           </div>
-          <div className="row-start-2 row-end-2 col-span-full">
+          <div className="md:row-start-2 md:row-end-2 md:col-span-full">
             <HomeCardComponent content={<LinkedinComponent />} />
           </div>
         </div>
