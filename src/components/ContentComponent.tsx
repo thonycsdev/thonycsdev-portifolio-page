@@ -1,7 +1,6 @@
 import React from "react";
 import { Tab } from "@/enums/TabTypes";
 import CertificationList from "./Certification/CertificationList";
-import ProjectList from "./Project/ProjectList";
 import SkillList from "./Skill/SkillList";
 import EducationList from "./Education/EducationList";
 import ExperienceList from "./Experience/ExperienceList";
@@ -22,8 +21,6 @@ function ContentComponent({ type, content }: Props) {
       return <EducationList educations={content.education} />;
     case Tab.EXPERIENCE:
       return <ExperienceList experience={content.experience} />;
-    case Tab.PROJECTS:
-      return <ProjectList projects={content.projects} />;
     case Tab.SKILLS:
       return <SkillList skills={content.skills} />;
     default:
