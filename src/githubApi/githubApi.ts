@@ -3,6 +3,7 @@ async function getGithubData() {
     .then((r) => r.json())
     .catch((e) => console.error(e));
   if (!result) throw new Error("Failed to get Repositories");
+  console.log(result);
   const repos = (result as GithubRepoResponse[])
     .filter((r) => r.description != "" || null || undefined)
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
