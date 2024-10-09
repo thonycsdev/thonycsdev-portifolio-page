@@ -1,9 +1,10 @@
+import { Center } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 type HomeCardComponentProps = {
-  content: ReactNode;
+  children: ReactNode;
 
 }
-export default function HomeCardComponent(props: HomeCardComponentProps) {
-  return <section className="bg-paper-background w-full h-full p-5 border-black border-solid border-[1px] rounded-lg flex justify-center items-center shadow-black hover:shadow-2xl transition-shadow duration-200 ease-in-out">{props.content}</section>
+export default function HomeCardComponent({ children }: HomeCardComponentProps) {
+  return <Center rounded={'xl'} height={"fit-content"} width={"fit-content"} border={'1px'} borderColor={'gray.600'} boxShadow={'2xl'} _hover={{ boxShadow: 'dark-lg' }} padding={5}>{children}</Center>
 }

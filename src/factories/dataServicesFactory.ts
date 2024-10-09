@@ -1,5 +1,4 @@
 import CertificationService from "@/services/certificationService";
-import { GithubServices } from "@/services/githubServices";
 import { SkillService } from "@/services/skillService";
 import { dataRepositoryFactory } from "./dataRepositoryFactory";
 import EducationService from "@/services/educationService";
@@ -18,11 +17,8 @@ export function dataServicesFactory() {
   const educationService = new EducationService(educationRepository);
   const experienceService = new ExperienceService(experienceRepository);
 
-  const githubService = new GithubServices();
-
   return {
     skillService,
-    githubService,
     certificationService,
     educationService,
     experienceService,
