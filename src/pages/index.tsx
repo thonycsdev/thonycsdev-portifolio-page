@@ -16,39 +16,43 @@ export default function Home() {
 		lg: 'large' // For larger desktops
 	});
 	function checkScreenSize() {
-		const mobileLayoutElements = [
-			<HeroSection />,
-			<AboutSection />,
-			<ProjectsSection />
-		];
-
-		const desktopLayout = [
-			<Box>
+		const mobileLayoutElements = (
+			<Grid
+				id="root_main"
+				bgColor={'feeling.background'}
+				boxSizing="border-box"
+				templateRows={'auto'}
+				templateColumns={{ md: 'repeat(2,1fr)' }}
+				justifyItems={'center'}
+			>
 				<HeroSection />
+				<AboutSection />
 				<ProjectsSection />
-			</Box>,
-			<AboutSection />
-		];
+			</Grid>
+		);
+
+		const desktopLayout = (
+			<Grid
+				id="root_main"
+				bgColor={'feeling.background'}
+				boxSizing="border-box"
+				templateRows={'auto'}
+				templateColumns={{ md: 'repeat(2,1fr)' }}
+				justifyItems={'center'}
+			>
+				<Box>
+					<HeroSection />
+					<ProjectsSection />
+				</Box>
+				<AboutSection />
+			</Grid>
+		);
 
 		if (screenSize != 'small') {
 			return desktopLayout;
 		}
 		return mobileLayoutElements;
 	}
-	return (
-		<Grid
-			id="root_main"
-			bgColor={'feeling.background'}
-			boxSizing="border-box"
-			templateRows={'auto'}
-			templateColumns={{ md: 'repeat(2,1fr)' }}
-			justifyItems={'center'}
-		>
-			{checkScreenSize().map((element, idx) => (
-				<HomeCardComponent key={idx}>
-					{element}
-				</HomeCardComponent>
-			))}
-		</Grid>
-	);
+	const render = checkScreenSize();
+	return render;
 }
