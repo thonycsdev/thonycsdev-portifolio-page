@@ -1,13 +1,30 @@
+import { Box } from '@chakra-ui/react';
+import CardComponent from './CardComponent';
+import CarouselItem from './CarouselItem';
 
 function CarouselComponent() {
-  return (
-    <div className="grid grid-rows-4 grid-cols-1 gap-3 justify-items-center">
-      <div className="grid grid-cols-2 bg-paper-darker h-16 rounded-xl border-black border items-center justify-items-center"><img className="h-full" src="./csharp_logo.png" /> CSharp</div>
-      <div className="grid grid-cols-2 bg-paper-darker h-16 rounded-xl border-black border items-center justify-items-center"><img className="h-full p-3" src="./net_core_logo.png" />.NET Core</div>
-      <div className="grid grid-cols-2 bg-paper-darker h-16 rounded-xl border-black border items-center justify-items-center"><img className="h-full p-3" src="./js_logo.png" />JavaScript</div>
-      <div className="grid grid-cols-2 bg-paper-darker h-16 rounded-xl border-black border items-center justify-items-center"><img className="h-full p-3" src="./react_icon.png" />React</div>
-    </div>
-  );
+	return (
+		<CardComponent title="Minhas principais Tecnologias">
+			<Box display={'flex'} flexDir={'column'}>
+				<CarouselItem
+					text="CSharp"
+					imgSrc="./csharp_logo.svg"
+				/>
+				<CarouselItem
+					text=".NET Core"
+					imgSrc="./net_core_logo.png"
+				/>
+				<CarouselItem
+					text="JavaScript"
+					imgSrc="./js_logo.png"
+				/>
+				<CarouselItem
+					text="React"
+					imgSrc="./react_icon.png"
+				/>
+			</Box>
+		</CardComponent>
+	);
 }
 
 export default CarouselComponent;

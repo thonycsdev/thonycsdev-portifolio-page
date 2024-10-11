@@ -1,7 +1,11 @@
-import { Education } from "@/models/education";
+import { Education } from '@/models/education';
 
 export default interface IEducationRepository {
-  getEducations(): Promise<Education[]>;
-  getEducationById(id: number): Promise<Education>;
-  insertEducation(input: Education): Promise<Education>;
+	getEducations(): Promise<Education[]>;
+	getEducationById(
+		id: number
+	): Promise<Education>;
+	insertEducation(
+		input: Education
+	): Promise<Education>;
 }

@@ -1,3 +1,7 @@
 export default function EducationComponent() {
-  return <>Ancoras para certificados, diplomas, skills</>
+	return (
+		<>
+			Ancoras para certificados, diplomas, skills
+		</>
+	);
 }
