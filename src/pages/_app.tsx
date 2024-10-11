@@ -23,7 +23,9 @@ export default function App({
 				background: '#002333',
 				4: '#DEEFE7',
 				5: '#FFFFFF',
-				font: '#7a8B93'
+				font: '#7A8B93',
+				cardBg: '#012E40',
+				buttonBg: '#024959'
 			}
 		}
 	});

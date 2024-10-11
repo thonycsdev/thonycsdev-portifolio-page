@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 #root_main {
-	height: 100vh;
+	height: 100%;
 	color: whitesmoke;
 	padding-left: 20px;
 	padding-right: 20px;

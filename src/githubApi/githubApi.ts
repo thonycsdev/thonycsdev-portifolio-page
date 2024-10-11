@@ -6,7 +6,6 @@ async function getGithubData() {
 		.catch((e) => console.error(e));
 	if (!result)
 		throw new Error('Failed to get Repositories');
-	console.log(result);
 	const repos = (result as GithubRepoResponse[])
 		.filter(
 			(r) =>

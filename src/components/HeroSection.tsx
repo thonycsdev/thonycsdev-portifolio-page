@@ -10,12 +10,13 @@ function HeroSection() {
 		<Grid
 			width={'100%'}
 			height={'fit-content'}
-			gap={10}
+			gap={5}
 		>
 			<Box justifySelf={'start'}>
 				<Text
 					fontSize={'xx-large'}
 					fontWeight={'bold'}
+					fontFamily={'body'}
 				>
 					Anthony Coutinho
 				</Text>

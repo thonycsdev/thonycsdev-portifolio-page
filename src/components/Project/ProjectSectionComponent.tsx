@@ -1,4 +1,9 @@
-import { Flex } from '@chakra-ui/react';
+import {
+	Box,
+	Center,
+	Flex,
+	Text
+} from '@chakra-ui/react';
 import ProjectCardComponent from './ProjectCardComponent';
 import { useEffect, useState } from 'react';
 import dataFetcher from '@/services/dataFetcher';
@@ -16,17 +21,28 @@ export default function ProjectsSection() {
 		return <h1>Loading...</h1>;
 	}
 	return (
-		<Flex
-			width={'full'}
-			gap={5}
-			direction={'column'}
+		<Box
+			gridColumnStart={{ md: 1 }}
+			gridRowStart={{ md: 2 }}
+			display={'grid'}
+			justifyItems={'center'}
 		>
-			{projects.map((x) => (
-				<ProjectCardComponent
-					project={x}
-					key={x.id}
-				/>
-			))}
-		</Flex>
+			<Text
+				marginY={10}
+				borderBottom={'1px'}
+				width={'80%'}
+				textAlign={'center'}
+			>
+				Meus principais projetos
+			</Text>
+			<Flex gap={5} direction={'column'}>
+				{projects.map((x) => (
+					<ProjectCardComponent
+						project={x}
+						key={x.id}
+					/>
+				))}
+			</Flex>
+		</Box>
 	);
 }
