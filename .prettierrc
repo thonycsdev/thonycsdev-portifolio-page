@@ -1,0 +1,8 @@
+printWidth: 50
+tabWidth: 2
+useTabs: true
+semi: true
+singleQuote: true
+trailingComma: none
+bracketSpacing: true
+arrowParens: always
