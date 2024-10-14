@@ -1,5 +1,9 @@
+import { Box } from '@chakra-ui/react';
+
 export default function CareerComponent() {
 	return (
-		<>Adicionar minha experiencia profissional</>
+		<Box gridColumnStart={2} gridRow={2}>
+			Adicionar minha experiencia profissional
+		</Box>
 	);
 }

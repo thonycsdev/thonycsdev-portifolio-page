@@ -5,10 +5,11 @@ import {
 	UnorderedList
 } from '@chakra-ui/react';
 import React from 'react';
+import CareerComponent from './Career/CareerComponent';
 
 function AboutSection() {
 	return (
-		<Box>
+		<Box height={'fit-content'}>
 			<Text
 				fontWeight={'bold'}
 				fontSize={'large'}
@@ -51,6 +52,9 @@ function AboutSection() {
 				software de qualidade, que seja essencial
 				para qualquer empresa.
 			</Text>
+			<Box>
+				<CareerComponent />
+			</Box>
 		</Box>
 	);
 }
