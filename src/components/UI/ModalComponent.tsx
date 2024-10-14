@@ -11,6 +11,7 @@ import {
 	Box
 } from '@chakra-ui/react';
 import ActionButtonComponent from './ActionButtonComponent';
+import { useRouter } from 'next/navigation';
 
 type ModalProps = {
 	isOpen: boolean;
@@ -22,6 +23,7 @@ export default function ModalProjectDetailsComponent({
 	onClose,
 	project
 }: ModalProps) {
+	const router = useRouter();
 	if (!project) return;
 	const data = formatProjectData(project);
 	return (
@@ -38,7 +40,10 @@ export default function ModalProjectDetailsComponent({
 					</Box>
 				</ModalBody>
 				<ModalFooter display={'flex'} gap={5}>
-					<ActionButtonComponent text="Acessar Codigo" onClick={() => {}} />
+					<ActionButtonComponent
+						text="Acessar Codigo"
+						onClick={() => router.push(project.url)}
+					/>
 					<ActionButtonComponent text="Fechar" onClick={onClose} />
 				</ModalFooter>
 			</ModalContent>
