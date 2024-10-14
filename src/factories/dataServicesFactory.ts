@@ -12,19 +12,10 @@ export function dataServicesFactory() {
 		experienceRepository
 	} = dataRepositoryFactory();
 
-	const skillService = new SkillService(
-		skillRepository
-	);
-	const certificationService =
-		new CertificationService(
-			certificateRepository
-		);
-	const educationService = new EducationService(
-		educationRepository
-	);
-	const experienceService = new ExperienceService(
-		experienceRepository
-	);
+	const skillService = new SkillService(skillRepository);
+	const certificationService = new CertificationService(certificateRepository);
+	const educationService = new EducationService(educationRepository);
+	const experienceService = new ExperienceService(experienceRepository);
 
 	return {
 		skillService,

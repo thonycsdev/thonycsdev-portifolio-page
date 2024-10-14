@@ -19,16 +19,8 @@ export default function CardComponent({
 }: CardComponentProps) {
 	return (
 		<>
-			<Box
-				background={'transparent'}
-				minW={'200px'}
-				border={'1px'}
-			>
-				<Text
-					borderBottom={'1px'}
-					borderStyle={'solid'}
-					textAlign={'center'}
-				>
+			<Box background={'transparent'} minW={'200px'} border={'1px'}>
+				<Text borderBottom={'1px'} borderStyle={'solid'} textAlign={'center'}>
 					{title}
 				</Text>
 				<Box>{children}</Box>

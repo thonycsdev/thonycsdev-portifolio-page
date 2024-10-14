@@ -4,10 +4,7 @@ import {
 	br,
 	en
 } from '@/translations/IConstantsTexts';
-import React, {
-	createContext,
-	useState
-} from 'react';
+import React, { createContext, useState } from 'react';
 
 type TranslationContextType = {
 	changeTranslation: (lang: Language) => void;
@@ -15,12 +12,11 @@ type TranslationContextType = {
 	currentLanguage: Language;
 };
 
-export const TranslationContext =
-	createContext<TranslationContextType>({
-		changeTranslation: () => {},
-		language: br,
-		currentLanguage: Language.br
-	});
+export const TranslationContext = createContext<TranslationContextType>({
+	changeTranslation: () => {},
+	language: br,
+	currentLanguage: Language.br
+});
 
 type TranslationContextProviderProps = {
 	children: React.ReactNode;
@@ -29,10 +25,8 @@ type TranslationContextProviderProps = {
 export function TranslationContextProvider({
 	children
 }: TranslationContextProviderProps) {
-	const [language, setLanguage] =
-		useState<IConstantsTexts>(br);
-	const [currentLanguage, setCurrentLanguage] =
-		useState<Language>(Language.br);
+	const [language, setLanguage] = useState<IConstantsTexts>(br);
+	const [currentLanguage, setCurrentLanguage] = useState<Language>(Language.br);
 	function changeTranslation(lang: Language) {
 		switch (lang) {
 			case Language.br:

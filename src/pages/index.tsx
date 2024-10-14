@@ -4,11 +4,7 @@ import CareerComponent from '@/components/Career/CareerComponent';
 import HeroSection from '@/components/HeroSection';
 import ProjectsSection from '@/components/Project/ProjectSectionComponent';
 import HomeCardComponent from '@/components/UI/HomeCardComponent';
-import {
-	Box,
-	Grid,
-	useBreakpointValue
-} from '@chakra-ui/react';
+import { Box, Grid, useBreakpointValue } from '@chakra-ui/react';
 
 export default function Home() {
 	const screenSize = useBreakpointValue({

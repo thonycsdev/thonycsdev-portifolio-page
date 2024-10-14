@@ -7,9 +7,7 @@ type Props = {
 };
 
 function SkillCard({ skill }: Props) {
-	const { currentLanguage } = useContext(
-		TranslationContext
-	);
+	const { currentLanguage } = useContext(TranslationContext);
 	const skillLevelInEnglish =
 		skill.level === 'Básico'
 			? 'Basic'
@@ -17,18 +15,12 @@ function SkillCard({ skill }: Props) {
 				? 'Intermediate'
 				: 'Advanced';
 	const skillLevel =
-		currentLanguage === 'en'
-			? skillLevelInEnglish
-			: skill.level;
+		currentLanguage === 'en' ? skillLevelInEnglish : skill.level;
 	return (
 		<div>
 			<li className="flex justify-between gap-4 items-center border border-emerald-600 rounded-xl p-3 px-5 overscroll-contain">
-				<span className="text-emerald-400 text-xl font-bold">
-					{skill.name}
-				</span>
-				<span className="text-emerald-400 text-xl">
-					{skillLevel}
-				</span>
+				<span className="text-emerald-400 text-xl font-bold">{skill.name}</span>
+				<span className="text-emerald-400 text-xl">{skillLevel}</span>
 			</li>
 		</div>
 	);

@@ -1,17 +1,10 @@
-import React, {
-	useContext,
-	useEffect,
-	useState
-} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { TranslationContext } from '../Context/TranslationContext';
 import { Language } from '@/translations/IConstantsTexts';
 
 function SwitchButton() {
-	const [isChecked, setIsChecked] =
-		useState(false);
-	const { changeTranslation } = useContext(
-		TranslationContext
-	);
+	const [isChecked, setIsChecked] = useState(false);
+	const { changeTranslation } = useContext(TranslationContext);
 
 	function onClickCheckbox() {
 		setIsChecked(!isChecked);
