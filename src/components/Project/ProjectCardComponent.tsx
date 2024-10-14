@@ -12,14 +12,14 @@ import { Text } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 type ComponentProps = {
 	project: GithubRepoResponse;
+	onDetailsClick: (project: GithubRepoResponse) => void;
 };
 export default function ProjectCardComponent({
-	project
+	project,
+	onDetailsClick
 }: ComponentProps) {
 	const router = useRouter();
-	const projectName = formatProjectName(
-		project.name
-	);
+	const projectName = formatProjectName(project.name);
 
 	return (
 		<>
@@ -29,42 +29,21 @@ export default function ProjectCardComponent({
 				textColor={'whitesmoke'}
 			>
 				<CardHeader>
-					<Text
-						textAlign={'center'}
-						size={'md'}
-						as={'h6'}
-						borderBottom={'1px'}
-					>
+					<Text textAlign={'center'} size={'md'} as={'h6'} borderBottom={'1px'}>
 						{projectName}
 					</Text>
 				</CardHeader>
 				<CardBody>
-					<Text>
-						Tecnologia Utilizada:{' '}
-						{project.language}
-					</Text>
+					<Text>Tecnologia Utilizada: {project.language}</Text>
 					<Box display={'flex'} gap={3}>
-						<Box
-							display={'flex'}
-							alignItems={'center'}
-							gap={1}
-						>
-							<IoStarSharp
-								size={'1.1rem'}
-								display={'inline'}
-							/>
+						<Box display={'flex'} alignItems={'center'} gap={1}>
+							<IoStarSharp size={'1.1rem'} display={'inline'} />
 							<Text>:</Text>
 						</Box>
-						<Text paddingTop={1}>
-							{project.stargazers_count}
-						</Text>
+						<Text paddingTop={1}>{project.stargazers_count}</Text>
 					</Box>
 				</CardBody>
-				<CardFooter
-					display={'flex'}
-					gap={4}
-					justifyContent={'space-between'}
-				>
+				<CardFooter display={'flex'} gap={4} justifyContent={'space-between'}>
 					<Button
 						colorScheme="feeling.buttonBg"
 						textColor={'whitesmoke'}
@@ -74,9 +53,7 @@ export default function ProjectCardComponent({
 							transform: 'scale(1.1)'
 						}}
 						transition={'all 0.3s ease-in-out'}
-						onClick={() =>
-							router.push(project.html_url)
-						}
+						onClick={() => router.push(project.html_url)}
 					>
 						<Text
 							_hover={{ borderBottom: '1px' }}
@@ -95,6 +72,7 @@ export default function ProjectCardComponent({
 							transform: 'scale(1.1)'
 						}}
 						transition={'all 0.3s ease-in-out'}
+						onClick={() => onDetailsClick(project)}
 					>
 						<Text
 							_hover={{ borderBottom: '1px' }}

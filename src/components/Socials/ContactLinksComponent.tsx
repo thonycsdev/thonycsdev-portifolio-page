@@ -10,22 +10,13 @@ export default function ContactLinksComponent() {
 			justifyContent={'start'}
 			gap={15}
 		>
-			<Box
-				opacity={'0.5'}
-				_hover={{ opacity: '1' }}
-			>
+			<Box opacity={'0.5'} _hover={{ opacity: '1' }}>
 				<AiFillGithub size={'2rem'} />
 			</Box>
-			<Box
-				opacity={'0.5'}
-				_hover={{ opacity: '1' }}
-			>
+			<Box opacity={'0.5'} _hover={{ opacity: '1' }}>
 				<CiLinkedin size={'2rem'} />
 			</Box>
-			<Box
-				opacity={'0.5'}
-				_hover={{ opacity: '1' }}
-			>
+			<Box opacity={'0.5'} _hover={{ opacity: '1' }}>
 				<FaRegFilePdf size={'1.5rem'} />
 			</Box>
 		</Box>

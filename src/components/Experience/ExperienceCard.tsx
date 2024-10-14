@@ -19,8 +19,7 @@ function ExperienceCard({ experience }: Props) {
 					</span>
 				</div>
 				<span className="text-lg">
-					{experience.started_year} -{' '}
-					{experience.ended_year || 'Present'}
+					{experience.started_year} - {experience.ended_year || 'Present'}
 				</span>
 			</li>
 		</div>

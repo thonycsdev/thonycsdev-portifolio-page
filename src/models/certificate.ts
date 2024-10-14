@@ -7,7 +7,6 @@ export class Certificate extends BaseModel {
 	constructor(data: Certificate) {
 		super(data);
 		this.hours = data.hours;
-		this.date_started_and_completion =
-			data.date_started_and_completion;
+		this.date_started_and_completion = data.date_started_and_completion;
 	}
 }

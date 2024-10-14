@@ -9,10 +9,7 @@ function ExperienceList({ experience }: Props) {
 	return (
 		<ul className="flex flex-col gap-5 mt-10 lg:flex-row justify-center flex-wrap">
 			{experience.map((x, idx) => (
-				<ExperienceCard
-					experience={x}
-					key={idx}
-				/>
+				<ExperienceCard experience={x} key={idx} />
 			))}
 		</ul>
 	);

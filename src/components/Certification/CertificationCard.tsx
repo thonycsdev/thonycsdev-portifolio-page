@@ -6,9 +6,7 @@ type Props = {
 	certification: Certificate;
 };
 
-function CertificationCard({
-	certification
-}: Props) {
+function CertificationCard({ certification }: Props) {
 	return (
 		<li className="relative flex flex-row justify-between gap-3 items-center border border-emerald-600 rounded-xl p-2 transition-all duration-200 hover:scale-110 max-w-full overscroll-contain">
 			<div className="flex flex-col w-4/5 gap-3">
@@ -21,9 +19,7 @@ function CertificationCard({
 					</span>
 				</div>
 				<span className="text-white text-lg">
-					{
-						certification.date_started_and_completion
-					}
+					{certification.date_started_and_completion}
 				</span>
 			</div>
 			<div className="w-2/5 h-20 flex justify-center items-center">

@@ -1,18 +1,10 @@
 import { Client } from 'pg';
 import IDatabase from './IDatabase';
 
-export default class PostgresDatabase
-	implements IDatabase
-{
-	async query(
-		stringQuery: string,
-		values?: any[]
-	): Promise<any> {
+export default class PostgresDatabase implements IDatabase {
+	async query(stringQuery: string, values?: any[]): Promise<any> {
 		const configuration = {
-			ssl:
-				process.env.NODE_ENV == 'development'
-					? false
-					: true,
+			ssl: process.env.NODE_ENV == 'development' ? false : true,
 			database: process.env.POSTGRES_DB,
 			user: process.env.POSTGRES_USER,
 			password: process.env.POSTGRES_PASSWORD,
@@ -24,16 +16,10 @@ export default class PostgresDatabase
 		const client = new Client(configuration);
 		try {
 			await client.connect();
-			const response = await client.query(
-				stringQuery,
-				values
-			);
+			const response = await client.query(stringQuery, values);
 			return response.rows;
 		} catch (error) {
-			console.error(
-				'Error executing query',
-				error
-			);
+			console.error('Error executing query', error);
 		} finally {
 			await client.end();
 		}
@@ -41,14 +27,12 @@ export default class PostgresDatabase
 	}
 
 	async getDatabaseVersion() {
-		const databaseVersionResult =
-			(await this.query(
-				'SHOW server_version;'
-			)) as any[];
-		const database_version =
-			this.formatDatabaseVersion(
-				databaseVersionResult[0].server_version
-			);
+		const databaseVersionResult = (await this.query(
+			'SHOW server_version;'
+		)) as any[];
+		const database_version = this.formatDatabaseVersion(
+			databaseVersionResult[0].server_version
+		);
 		return database_version;
 	}
 
@@ -56,11 +40,8 @@ export default class PostgresDatabase
 		return version.split(' ')[0];
 	}
 	async getDatabaseMaxConnections() {
-		var databaseConnectionsResult =
-			await this.query('SHOW max_connections');
-		var max_connections =
-			databaseConnectionsResult![0]
-				.max_connections;
+		var databaseConnectionsResult = await this.query('SHOW max_connections');
+		var max_connections = databaseConnectionsResult![0].max_connections;
 		return max_connections;
 	}
 
@@ -71,8 +52,7 @@ export default class PostgresDatabase
 			[databaseName]
 		)) as any[];
 
-		const activeConnectionsValue =
-			activeConnections[0].count;
+		const activeConnectionsValue = activeConnections[0].count;
 		return activeConnectionsValue;
 	}
 }
