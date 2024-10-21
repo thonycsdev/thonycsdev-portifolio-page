@@ -1,5 +1,8 @@
 import { StatusApiResponse } from '@/schemas/statusApiResponse';
-
+import orchestrator from '../orchestrator';
+beforeAll(async () => {
+	await orchestrator.waitForAllServices();
+});
 describe('status.js tests', () => {
 	test('Should return the status object when called', async () => {
 		var response = await fetch('http://localhost:3000/api/v1/status');
