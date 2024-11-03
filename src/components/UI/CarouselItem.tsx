@@ -1,5 +1,4 @@
-import { Box, Grid, Image, Text } from '@chakra-ui/react';
-
+import { Grid, Image, Text } from '@chakra-ui/react';
 type CarouselItemProps = {
 	imgSrc: string;
 	text: string;
