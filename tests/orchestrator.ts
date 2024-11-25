@@ -12,7 +12,11 @@ async function waitForWebService() {
 
 async function fetchServerStatus() {
 	const response = await fetch('http://localhost:3000/api/v1/status');
-	if (response.status != 200) throw Error();
+	if (response.status != 200) {
+		const data = await response.json();
+		throw new Error(data);
+	}
 }
 
-export default { waitForAllServices };
+const orchestrator = { waitForAllServices };
+export default orchestrator;

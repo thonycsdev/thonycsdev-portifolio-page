@@ -1,6 +1,7 @@
 import { Experience } from '@/models/experience';
 import IDatabase from '../data/IDatabase';
 import IExperienceRepository from './interfaces/IExperienceRepository';
+import database from '../data/database';
 
 export default class ExperienceRepository implements IExperienceRepository {
 	constructor(private readonly database: IDatabase) {}
@@ -21,3 +22,5 @@ export default class ExperienceRepository implements IExperienceRepository {
 		throw new Error('Method not implemented.');
 	}
 }
+
+export const experienceRepository = new ExperienceRepository(database);

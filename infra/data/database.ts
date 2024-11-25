@@ -1,7 +1,7 @@
 import { Client } from 'pg';
 import IDatabase from './IDatabase';
 
-export default class PostgresDatabase implements IDatabase {
+export class PostgresDatabase implements IDatabase {
 	async query(stringQuery: string, values?: any[]): Promise<any> {
 		const configuration = {
 			ssl: process.env.NODE_ENV == 'development' ? false : true,
@@ -56,3 +56,5 @@ export default class PostgresDatabase implements IDatabase {
 		return activeConnectionsValue;
 	}
 }
+const database = new PostgresDatabase();
+export default database;

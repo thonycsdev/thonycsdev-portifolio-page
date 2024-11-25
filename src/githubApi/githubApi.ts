@@ -1,13 +1,18 @@
 async function getGithubData() {
 	var result = await fetch(process.env.GITHUB_URL + '/repos')
 		.then((r) => r.json())
-		.catch((e) => console.error(e));
-	if (!result) throw new Error('Failed to get Repositories');
+		.catch(() => {
+			throw new Error('Erro while getting GITHUB Data from its API');
+		});
+
+	if (result.message) return [];
+
 	const repos = (result as GithubRepoResponse[])
 		.filter((r) => r.description != '' || null || undefined)
 		.sort((a, b) => b.stargazers_count - a.stargazers_count)
-		.splice(0, 3);
+		.splice(0, 5);
 
-	return repos;
+	return repos as GithubRepoResponse[];
 }
-export default { getGithubData };
+const githubApi = { getGithubData };
+export default githubApi;

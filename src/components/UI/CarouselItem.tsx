@@ -10,7 +10,7 @@ export default function CarouselItem({ text, imgSrc }: CarouselItemProps) {
 			justifyItems={'center'}
 			alignItems={'center'}
 		>
-			<Image src={imgSrc} objectFit={'contain'} boxSize={50} p={5} />
+			<Image alt={text} src={imgSrc} objectFit={'contain'} boxSize={50} p={5} />
 			<Text>{text}</Text>
 		</Grid>
 	);

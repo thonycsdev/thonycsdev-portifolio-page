@@ -1,28 +1,44 @@
 import { Experience } from '@/models/experience';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
 type Props = {
 	experience: Experience;
 };
 function ExperienceCard({ experience }: Props) {
 	return (
-		<div>
-			<li className="flex justify-around gap-4 items-center border border-emerald-600 rounded-xl p-3 px-5 overscroll-contain">
-				<div className="flex-col flex gap-2">
-					<span className="text-emerald-400 text-xl font-bold">
-						{experience.name}
-					</span>
-					<span className="text-emerald-400 text-xl text-nowrap">
-						{experience.description}
-					</span>
-					<span className="text-emerald-400 text-xl text-nowrap">
-						{experience.level}
-					</span>
-				</div>
+		<Box
+			background={'feeling.cardBg'}
+			minW={'200px'}
+			height={'180px'}
+			p={10}
+			display={'flex'}
+			flexDirection={'column'}
+			justifyContent={'center'}
+			rounded={'lg'}
+			_hover={{
+				transform: 'scale(1.1)'
+			}}
+			transition={'all 0.3s ease-in-out'}
+			cursor={'pointer'}
+			onClick={() => alert('Modal ainda sendo construida')}
+		>
+			<Text
+				mb={2}
+				textAlign={'center'}
+				size={'2xl'}
+				as={'h6'}
+				borderBottom={'1px'}
+			>
+				{experience.name}
+			</Text>
+			<Text>{experience.level}</Text>
+			<Text mb={3}>{experience.description}</Text>
+			<Flex boxShadow={'dark-lg'} p={3} justifyContent={'center'} m={2}>
 				<span className="text-lg">
 					{experience.started_year} - {experience.ended_year || 'Present'}
 				</span>
-			</li>
-		</div>
+			</Flex>
+		</Box>
 	);
 }
 
