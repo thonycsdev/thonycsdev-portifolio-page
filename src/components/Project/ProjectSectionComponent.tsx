@@ -3,12 +3,7 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import ProjectCardComponent from './ProjectCardComponent';
 import { useState } from 'react';
 import ModalComponent from '../UI/ModalComponent';
-
-async function fetchFromAPI(key: string) {
-	const response = await fetch(key);
-	const responseData = await response.json();
-	return responseData;
-}
+import fetchFromAPI from '@/services/dataFetcher';
 
 export default function ProjectsSection() {
 	const [selectedProject, setSelectedProject] = useState<
@@ -27,6 +22,7 @@ export default function ProjectsSection() {
 		setSelectedProject(project);
 		setIsModalOpen(true);
 	};
+
 	if (isLoading && !data) {
 		return <h1>Loading...</h1>;
 	}

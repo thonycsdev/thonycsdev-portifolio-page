@@ -1,9 +1,7 @@
 'use client';
 import AboutSection from '@/components/AboutSection';
-import CareerComponent from '@/components/Career/CareerComponent';
 import HeroSection from '@/components/HeroSection';
 import ProjectsSection from '@/components/Project/ProjectSectionComponent';
-import HomeCardComponent from '@/components/UI/HomeCardComponent';
 import { Box, Grid, useBreakpointValue } from '@chakra-ui/react';
 
 export default function Home() {

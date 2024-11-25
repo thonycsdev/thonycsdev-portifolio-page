@@ -1,7 +1,5 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
-async function fetchProjects() {
-	const response = await fetch(API_URL + '/github').then((r) => r.json());
-	return response as GithubRepoResponse[];
+export default async function fetchFromAPI(key: string) {
+	const response = await fetch(key);
+	const responseData = await response.json();
+	return responseData;
 }
-
-export default { fetchProjects };
