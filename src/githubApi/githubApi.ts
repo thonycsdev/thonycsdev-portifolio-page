@@ -6,8 +6,9 @@ async function getGithubData() {
 	const repos = (result as GithubRepoResponse[])
 		.filter((r) => r.description != '' || null || undefined)
 		.sort((a, b) => b.stargazers_count - a.stargazers_count)
-		.splice(0, 3);
+		.splice(0, 5);
 
 	return repos;
 }
-export default { getGithubData };
+const githubApi = { getGithubData };
+export default githubApi;
