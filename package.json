@@ -8,8 +8,9 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"test": "npm run services:up && npm run migration:run && npx concurrently -n next,jest --hide next -k -s command-jest 'next dev' 'jest --runInBand --verbose'",
+		"test": "npm run services:up && npm run wait-for-postgres && npx concurrently -n next,jest --hide next -k -s command-jest 'next dev' 'jest --runInBand --verbose'",
 		"services:up": "docker compose -f infra/docker-compose.yml up -d ",
+		"wait-for-postgres": "tsx ./infra/wait-for-postgres.ts && npm run migration:run",
 		"services:stop": "docker compose -f infra/docker-compose.yml stop",
 		"services:down": "docker compose -f infra/docker-compose.yml down",
 		"test:watch": "jest --watch",
@@ -36,7 +37,8 @@
 		"react": "^18",
 		"react-dom": "^18",
 		"react-icons": "^5.0.1",
-		"swr": "2.2.5"
+		"swr": "2.2.5",
+		"tsx": "^4.19.2"
 	},
 	"devDependencies": {
 		"@faker-js/faker": "^8.4.1",
