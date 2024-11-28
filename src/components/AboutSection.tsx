@@ -1,10 +1,20 @@
-import { Box, ListItem, Text, UnorderedList } from '@chakra-ui/react';
+import {
+	Box,
+	Grid,
+	GridItem,
+	ListItem,
+	Text,
+	UnorderedList
+} from '@chakra-ui/react';
 import React from 'react';
 import CareerComponent from './Career/CareerComponent';
+import useScreenSize from '@/hooks/useScreenSize';
+import EducationComponent from './Education/EducationComponent';
 
 function AboutSection() {
+	const { isSmall } = useScreenSize();
 	return (
-		<Box height={'fit-content'}>
+		<GridItem height={'fit-content'} colSpan={3}>
 			<Text fontWeight={'bold'} fontSize={'large'} paddingY={5}>
 				Sobre mim
 			</Text>
@@ -32,10 +42,18 @@ function AboutSection() {
 				tempo, entregar software de qualidade, que seja essencial para qualquer
 				empresa.
 			</Text>
-			<Box>
-				<CareerComponent />
-			</Box>
-		</Box>
+			<Grid
+				templateColumns={isSmall ? 'repeat(1,1fr)' : 'repeat(3,1fr)'}
+				templateRows={'auto'}
+			>
+				<GridItem colSpan={isSmall ? 1 : 2}>
+					<CareerComponent />
+				</GridItem>
+				<GridItem colStart={isSmall ? 'auto' : 3}>
+					<EducationComponent />
+				</GridItem>
+			</Grid>
+		</GridItem>
 	);
 }
 

@@ -32,7 +32,7 @@ export default function Home() {
 				bgColor={'feeling.background'}
 				boxSizing="border-box"
 				templateRows={'auto'}
-				templateColumns={{ md: 'repeat(2,1fr)' }}
+				templateColumns={{ md: 'repeat(4,1fr)' }}
 				justifyItems={'center'}
 			>
 				<Box>

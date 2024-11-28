@@ -1,7 +1,3 @@
 import { BaseModel } from './baseMode';
 
-export class Skill extends BaseModel {
-	constructor(data: Skill) {
-		super(data);
-	}
-}
+export interface Skill extends BaseModel {}
