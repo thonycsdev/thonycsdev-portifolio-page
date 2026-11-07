@@ -29,7 +29,7 @@ Deploys run from GitHub Actions (`.github/workflows/deploy.yaml`), not from Verc
 
 - Push to `master` deploys to production. Push to `development` deploys a Preview.
 - The workflow first calls the reusable `tests.yaml` workflow (`workflow_call`). Only if the tests pass does it run the Vercel CLI (`vercel@65.2.0`): `pull` → `build` → `deploy --prebuilt`, adding `--prod` on `master`. `vercel build` uses `installCommand` and `buildCommand` from `vercel.json`.
-- Required repository secrets: `VERCEL_TOKEN` (Vercel → Account Settings → Tokens), plus `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID`. The two IDs are in `.vercel/project.json` after running `bunx vercel link` locally; `.vercel` is gitignored.
+- The deploy job runs in a GitHub Environment: `Production` on `master`, `Development` on `development`. Each environment needs the secrets `VERCEL_TOKEN` (Vercel → Account Settings → Tokens), `VERCEL_ORG_ID` (Account Settings → General → Vercel ID, or Team Settings → Team ID) and `VERCEL_PROJECT_ID` (Project → Settings → General). Repository-level secrets with the same names also work. Environment secrets are only visible to jobs that declare that environment.
 - Runtime env vars (`POSTGRES_*`, `GITHUB_URL`, `NEXT_PUBLIC_*`) come from the Vercel project settings, which `vercel pull` downloads. Migrations do not run on deploy.
 
 ## Code style
