@@ -11,6 +11,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.11.0'
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: 'package.json'
 
-      - run: npm install
-      - run: npm run prettier:check
+      - run: bun install --frozen-lockfile
+      - run: bun run prettier:check
