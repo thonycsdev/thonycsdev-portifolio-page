@@ -10,15 +10,18 @@ Follow the work method in `../WorkMethodIA/` (start with its `README.md`). It de
 
 ## Commands
 
-- `npm run dev` — starts the Postgres container (`postgres-dev`, from `infra/docker-compose.yml`), then `next dev`
-- `npm test` — the full pipeline: starts Postgres, waits for it (`infra/wait-for-postgres.ts` via `tsx`), runs migrations, then runs `next dev` and `jest --runInBand` side by side with `concurrently`, and stops when Jest exits
-- Single test: with `npm run dev` already running (and migrations applied), `npx jest tests/api/status.spec.ts` or `npx jest -t "test name"`
-- `npm run lint` (`next lint`, `next/core-web-vitals`)
-- `npm run prettier:check` / `npm run prettier:write`
-- `npm run services:up` / `services:stop` / `services:down`
-- Migrations (node-pg-migrate, `infra/migrations`): `npm run migration:create -- <name>`, `npm run migration:run` (reads `.env.development`). `migration:down` reads `.env`, which is not committed.
+Package manager is Bun (`packageManager: bun@1.4.2`, lockfile `bun.lock`). Don't use npm or commit a `package-lock.json`. Bun only installs packages and runs scripts here: Next and Jest still run on Node through their bin shebangs, and the tests use Jest, not Bun's test runner.
 
-CI (`.github/workflows`, Node 22.11.0) runs Prettier check, lint and `npm test` on every PR, so code must pass `prettier --check`.
+- `bun install`
+- `bun run dev` — starts the Postgres container (`postgres-dev`, from `infra/docker-compose.yml`), then `next dev`
+- `bun run test` — the full pipeline: starts Postgres, waits for it (`bun ./infra/wait-for-postgres.ts`), runs migrations, then runs `next dev` and `jest --runInBand` side by side with `concurrently`, and stops when Jest exits. Use `bun run test`, not `bun test`, which would start Bun's own test runner.
+- Single test: `bunx jest tests/services/skillService.test.ts` or `bunx jest -t "test name"`. Unit tests in `tests/services` and `tests/githubApi` need nothing running. Tests in `tests/api` need `bun run dev` running with migrations applied.
+- `bun run lint` (`next lint`, `next/core-web-vitals`)
+- `bun run prettier:check` / `bun run prettier:write`
+- `bun run services:up` / `services:stop` / `services:down`
+- Migrations (node-pg-migrate, `infra/migrations`): `bun run migration:create <name>`, `bun run migration:run` (reads `.env.development`). `migration:down` reads `.env`, which is not committed.
+
+CI (`.github/workflows`) installs Node 22.11.0 plus Bun (`oven-sh/setup-bun`, version from `package.json`), runs `bun install --frozen-lockfile`, then runs Prettier check, lint and `bun run test` on every PR, so code must pass `prettier --check`.
 
 ## Code style
 

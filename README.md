@@ -19,10 +19,10 @@ Este portfólio foi desenvolvido utilizando [Next.js], [React.js], [Typescript],
 1. Clone o repositório: `git clone https://github.com/thonycsdev/thonycsdev-portifolio-page`
 2. Navegue até o diretório do projeto: `cd thonycsdev-portifolio-page`
 3. Abra o dev container
-4. No terminal do dev container, execute o comando `npm install`
-5. Após a instalação, execute o comando `npm run dev`
+4. No terminal do dev container, execute o comando `bun install`
+5. Após a instalação, execute o comando `bun run dev`
 
-6. Para executar os testes automatizados, complete a etapa 5 e execute `npm run test`
+6. Para executar os testes automatizados, complete a etapa 5 e execute `bun run test`
 
 ## Contribuições
 
