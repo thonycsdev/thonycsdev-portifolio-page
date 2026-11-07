@@ -8,7 +8,7 @@ async function getGithubData() {
 	if (result.message) return [];
 
 	const repos = (result as GithubRepoResponse[])
-		.filter((r) => r.description != '' || null || undefined)
+		.filter((r) => !!r.description)
 		.sort((a, b) => b.stargazers_count - a.stargazers_count)
 		.splice(0, 5);
 
