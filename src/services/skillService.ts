@@ -12,6 +12,6 @@ export class SkillService implements ISkillServices {
 		return await this.skillRepository.getSkillById(id);
 	}
 	async insertSkill(input: Skill): Promise<Skill> {
-		return await this.insertSkill(input);
+		return await this.skillRepository.insertSkill(input);
 	}
 }
