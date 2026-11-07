@@ -29,7 +29,10 @@ Prettier: tabs, single quotes, semicolons, no trailing commas, printWidth 80.
 
 ## Tests
 
-All tests in `tests/` are integration tests that `fetch` a live `next dev` server on `localhost:3000`. Each one calls `orchestrator.waitForAllServices()` in `beforeAll`, which retries `/api/v1/status` until it returns 200. Jest loads `.env.development` and has a 60s timeout. `status.spec.ts` expects Postgres 16 and exactly 1 opened DB connection. The GitHub test calls the real GitHub API.
+Jest loads `.env.development` and has a 60s timeout.
+
+- Unit tests (`tests/services`, `tests/githubApi`) replace dependencies with fakes: a hand-built repository object made of `jest.fn()` methods for services, and `jest.spyOn(global, 'fetch')` for the GitHub client.
+- Integration tests (`tests/api`) `fetch` a live `next dev` server on `localhost:3000`. Each one calls `orchestrator.waitForAllServices()` in `beforeAll`, which retries `/api/v1/status` until it returns 200. `status.spec.ts` expects Postgres 16 and exactly 1 opened DB connection. The `/api/v1/github` test calls the real GitHub API.
 
 ## Architecture
 
