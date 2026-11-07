@@ -23,6 +23,15 @@ Package manager is Bun (`packageManager: bun@1.4.2`, lockfile `bun.lock`). Don't
 
 CI (`.github/workflows`) installs Node 22.11.0 plus Bun (`oven-sh/setup-bun`, version from `package.json`), runs `bun install --frozen-lockfile`, then runs Prettier check, lint and `bun run test` on every PR, so code must pass `prettier --check`.
 
+## Deploy
+
+Deploys run from GitHub Actions (`.github/workflows/deploy.yaml`), not from Vercel's Git integration: `vercel.json` sets `git.deploymentEnabled: false`.
+
+- Push to `master` deploys to production. Push to `development` deploys a Preview.
+- The workflow first calls the reusable `tests.yaml` workflow (`workflow_call`). Only if the tests pass does it run the Vercel CLI (`vercel@65.2.0`): `pull` → `build` → `deploy --prebuilt`, adding `--prod` on `master`. `vercel build` uses `installCommand` and `buildCommand` from `vercel.json`.
+- Required repository secrets: `VERCEL_TOKEN` (Vercel → Account Settings → Tokens), plus `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID`. The two IDs are in `.vercel/project.json` after running `bunx vercel link` locally; `.vercel` is gitignored.
+- Runtime env vars (`POSTGRES_*`, `GITHUB_URL`, `NEXT_PUBLIC_*`) come from the Vercel project settings, which `vercel pull` downloads. Migrations do not run on deploy.
+
 ## Code style
 
 Prettier: tabs, single quotes, semicolons, no trailing commas, printWidth 80.
