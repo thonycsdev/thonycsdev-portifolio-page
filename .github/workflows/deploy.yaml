@@ -16,6 +16,7 @@ jobs:
     name: Deploy to Vercel
     needs: test
     runs-on: ubuntu-latest
+    environment: ${{ github.ref_name == 'master' && 'Production' || 'Development' }}
     env:
       VERCEL_CLI: vercel@65.2.0
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
