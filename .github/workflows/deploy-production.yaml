@@ -24,16 +24,15 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version-file: 'package.json'
+          cache: 'pnpm'
 
       - name: Pull Vercel environment
-        run: bunx $VERCEL_CLI pull --yes --environment=production --token="$VERCEL_TOKEN"
+        run: pnpm dlx $VERCEL_CLI pull --yes --environment=production --token="$VERCEL_TOKEN"
       - name: Build
-        run: bunx $VERCEL_CLI build --prod --token="$VERCEL_TOKEN"
+        run: pnpm dlx $VERCEL_CLI build --prod --token="$VERCEL_TOKEN"
       - name: Deploy
-        run: bunx $VERCEL_CLI deploy --prebuilt --prod --token="$VERCEL_TOKEN"
+        run: pnpm dlx $VERCEL_CLI deploy --prebuilt --prod --token="$VERCEL_TOKEN"

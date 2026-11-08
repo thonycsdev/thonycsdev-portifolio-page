@@ -10,20 +10,20 @@ Follow the work method in `../WorkMethodIA/` (start with its `README.md`). It de
 
 ## Commands
 
-Package manager is Bun (`packageManager: bun@1.4.2`, lockfile `bun.lock`). Don't use npm or commit a `package-lock.json`. Bun only installs packages and runs scripts here: Next and Jest still run on Node through their bin shebangs, and the tests use Jest, not Bun's test runner.
+Package manager is pnpm (`packageManager: pnpm@12.18.0`, lockfile `pnpm-lock.yaml`). Don't use npm or Bun, and don't commit a `package-lock.json` or `bun.lock`. Let pnpm write the lockfile; don't edit it by hand (Prettier ignores it). Node runs everything: Next and Jest through their bin shebangs, and `infra/wait-for-postgres.mts` through Node's native TypeScript support (it needs `type` on type-only imports). pnpm runs dependency build scripts only when they are listed under `allowBuilds` in `pnpm-workspace.yaml` (today only `@swc/core`); approve a new one with `pnpm approve-builds <pkg>`. pnpm does not hoist undeclared packages, so every package the code imports must be declared in `package.json`.
 
-- `bun install`
-- `bun run dev` — starts the Postgres container (`postgres-dev`, from `infra/docker-compose.yml`), then `next dev`
-- `bun run test` — the full pipeline: starts Postgres, waits for it (`bun ./infra/wait-for-postgres.ts`), runs migrations, then runs `next dev` and `jest --runInBand` side by side with `concurrently`, and stops when Jest exits. Use `bun run test`, not `bun test`, which would start Bun's own test runner.
-- Single test: `bunx jest tests/services/skillService.test.ts` or `bunx jest -t "test name"`. Unit tests in `tests/services` and `tests/githubApi` need nothing running. Tests in `tests/api` need `bun run dev` running with migrations applied.
-- `bun run lint` (`next lint`, `next/core-web-vitals`)
-- `bun run prettier:check` / `bun run prettier:write`
-- `bun run services:up` / `services:stop` / `services:down`
-- Migrations (node-pg-migrate, `infra/migrations`): `bun run migration:create <name>`, `bun run migration:run` (reads `.env.development`). `migration:down` reads `.env`, which is not committed.
+- `pnpm install`
+- `pnpm run dev` — starts the Postgres container (`postgres-dev`, from `infra/docker-compose.yml`), then `next dev`
+- `pnpm run test` — the full pipeline: starts Postgres, waits for it (`node ./infra/wait-for-postgres.mts`), runs migrations, then runs `next dev` and `jest --runInBand` side by side with `concurrently`, and stops when Jest exits.
+- Single test: `pnpm exec jest tests/services/skillService.test.ts` or `pnpm exec jest -t "test name"`. Unit tests in `tests/services` and `tests/githubApi` need nothing running. Tests in `tests/api` need `pnpm run dev` running with migrations applied.
+- `pnpm run lint` (`next lint`, `next/core-web-vitals`)
+- `pnpm run prettier:check` / `pnpm run prettier:write`
+- `pnpm run services:up` / `services:stop` / `services:down`
+- Migrations (node-pg-migrate, `infra/migrations`): `pnpm run migration:create <name>`, `pnpm run migration:run` (reads `.env.development`). `migration:down` reads `.env`, which is not committed.
 
 Node version: `.nvmrc` (26.13.0, LTS) is the single source. Every workflow reads it with `node-version-file: '.nvmrc'`, and `package.json` `engines.node` (`26.x`) makes Vercel build and run on the same major. Bump both together. Locally, run `nvm use`.
 
-CI (`.github/workflows`) installs Node from `.nvmrc` plus Bun (`oven-sh/setup-bun`, version from `package.json`), runs `bun install --frozen-lockfile`, then runs Prettier check, lint and `bun run test` on every PR, so code must pass `prettier --check`.
+CI (`.github/workflows`) installs pnpm with `pnpm/action-setup` (version from `packageManager`), then Node from `.nvmrc` with `cache: 'pnpm'` (pnpm must be set up first for the cache to work), runs `pnpm install --frozen-lockfile`, then runs Prettier check, lint and `pnpm run test` on every PR, so code must pass `prettier --check`.
 
 ## Deploy
 

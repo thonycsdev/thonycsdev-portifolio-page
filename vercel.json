@@ -1,6 +1,6 @@
 {
-	"installCommand": "bun install --frozen-lockfile",
-	"buildCommand": "bun run build",
+	"installCommand": "pnpm install --frozen-lockfile",
+	"buildCommand": "pnpm run build",
 	"git": {
 		"deploymentEnabled": false
 	}

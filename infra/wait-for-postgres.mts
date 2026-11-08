@@ -1,4 +1,4 @@
-import { exec, ExecException } from 'node:child_process';
+import { exec, type ExecException } from 'node:child_process';
 
 function checkPostgresConnection() {
 	exec('docker exec postgres-dev pg_isready --host localhost', handleReturn);

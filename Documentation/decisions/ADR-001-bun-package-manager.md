@@ -1,6 +1,6 @@
 # ADR-001: Use Bun as the package manager
 
-**Date:** 2026-11-07 · **Status:** Accepted
+**Date:** 2026-11-07 · **Status:** Superseded by ADR-005
 
 ## Context
 
