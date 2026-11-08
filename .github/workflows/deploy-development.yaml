@@ -1,11 +1,11 @@
-name: deploy
+name: deploy-development
 
 on:
   push:
-    branches: [master, development]
+    branches: [development]
 
 concurrency:
-  group: deploy-${{ github.ref_name }}
+  group: deploy-development
   cancel-in-progress: false
 
 jobs:
@@ -13,17 +13,15 @@ jobs:
     uses: ./.github/workflows/tests.yaml
 
   deploy:
-    name: Deploy to Vercel
+    name: Deploy to Vercel (development)
     needs: test
     runs-on: ubuntu-latest
-    environment: ${{ vars.DEPLOY_ENV }}
+    environment: Development
     env:
       VERCEL_CLI: vercel@65.2.0
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-      VERCEL_ENVIRONMENT: ${{ vars.DEPLOY_ENV }}
-      VERCEL_PRODUCTION_FLAG: ${{ github.ref_name == 'master' && '--prod' || '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -34,8 +32,8 @@ jobs:
           bun-version-file: 'package.json'
 
       - name: Pull Vercel environment
-        run: bunx $VERCEL_CLI pull --yes --environment=$VERCEL_ENVIRONMENT --token="$VERCEL_TOKEN"
+        run: bunx $VERCEL_CLI pull --yes --environment=development --token="$VERCEL_TOKEN"
       - name: Build
-        run: bunx $VERCEL_CLI build $VERCEL_PRODUCTION_FLAG --token="$VERCEL_TOKEN"
+        run: bunx $VERCEL_CLI build --token="$VERCEL_TOKEN"
       - name: Deploy
-        run: bunx $VERCEL_CLI deploy --prebuilt $VERCEL_PRODUCTION_FLAG --token="$VERCEL_TOKEN"
+        run: bunx $VERCEL_CLI deploy --prebuilt --token="$VERCEL_TOKEN"
