@@ -21,7 +21,9 @@ Package manager is Bun (`packageManager: bun@1.4.2`, lockfile `bun.lock`). Don't
 - `bun run services:up` / `services:stop` / `services:down`
 - Migrations (node-pg-migrate, `infra/migrations`): `bun run migration:create <name>`, `bun run migration:run` (reads `.env.development`). `migration:down` reads `.env`, which is not committed.
 
-CI (`.github/workflows`) installs Node 22.11.0 plus Bun (`oven-sh/setup-bun`, version from `package.json`), runs `bun install --frozen-lockfile`, then runs Prettier check, lint and `bun run test` on every PR, so code must pass `prettier --check`.
+Node version: `.nvmrc` (26.13.0, LTS) is the single source. Every workflow reads it with `node-version-file: '.nvmrc'`, and `package.json` `engines.node` (`26.x`) makes Vercel build and run on the same major. Bump both together. Locally, run `nvm use`.
+
+CI (`.github/workflows`) installs Node from `.nvmrc` plus Bun (`oven-sh/setup-bun`, version from `package.json`), runs `bun install --frozen-lockfile`, then runs Prettier check, lint and `bun run test` on every PR, so code must pass `prettier --check`.
 
 ## Deploy
 
