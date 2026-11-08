@@ -30,8 +30,17 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
 
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
       - name: Pull Vercel environment
         run: pnpm dlx $VERCEL_CLI pull --yes --environment=preview --token="$VERCEL_TOKEN"
+      - name: Run migrations
+        run: >-
+          pnpm exec dotenv --no-expand -e .vercel/.env.preview.local --
+          sh -c 'PGHOST="$POSTGRES_HOST" PGPORT="${POSTGRES_PORT:-5432}"
+          PGUSER="$POSTGRES_USER" PGPASSWORD="$POSTGRES_PASSWORD"
+          PGDATABASE="$POSTGRES_DB" PGSSLMODE=require
+          node-pg-migrate --migrations-dir ./infra/migrations up'
       - name: Build
         run: pnpm dlx $VERCEL_CLI build --token="$VERCEL_TOKEN"
       - name: Deploy
