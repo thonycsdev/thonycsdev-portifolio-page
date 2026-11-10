@@ -1,0 +1,1 @@
+.lead { font-family: var(--font-serif), Georgia, serif; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.4; max-width: 30ch; }

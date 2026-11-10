@@ -1,0 +1,28 @@
+.hero { position: relative; padding: 120px 0 48px; }
+
+.words { font-family: var(--font-serif), Georgia, serif; font-size: clamp(72px, 14vw, 200px); line-height: 1; }
+.word { white-space: nowrap; padding-right: 0.25em; }
+.filled { color: var(--orange); }
+.outline { color: transparent; -webkit-text-stroke: 2px var(--ink); }
+.star { font-style: normal; font-size: 0.3em; vertical-align: middle; color: var(--ink); -webkit-text-stroke: 0; }
+
+.card { position: absolute; left: 50%; top: 50%; animation: float 6s ease-in-out infinite; }
+@keyframes float {
+  0%, 100% { transform: translate(-50%, -70%) rotate(-8deg); }
+  50% { transform: translate(-50%, -76%) rotate(-5deg); }
+}
+
+.footer {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap;
+  padding: 120px var(--gutter) 0;
+}
+.intro { max-width: 34ch; font-size: 14px; margin-bottom: 16px; }
+.employers { display: flex; gap: 24px; font-family: var(--font-serif), serif; opacity: 0.6; flex-wrap: wrap; }
+
+@media (max-width: 768px) {
+  .hero { padding-top: 160px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { animation: none; transform: translate(-50%, -70%) rotate(-8deg); }
+}

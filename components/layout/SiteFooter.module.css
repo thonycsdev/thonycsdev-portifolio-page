@@ -1,0 +1,14 @@
+.footer { padding: 48px var(--gutter) 24px; overflow: hidden; }
+.top { display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+.cta { font-size: 28px; max-width: 18ch; margin-bottom: 16px; }
+.emailPill { display: inline-block; border: 1px solid var(--ink); border-radius: 999px; padding: 10px 20px; font-size: 14px; }
+.emailPill:hover { background: var(--ink); color: var(--cream); }
+.columns { display: flex; gap: clamp(48px, 10vw, 160px); font-size: 13px; flex-wrap: wrap; }
+.columns ul { display: flex; flex-direction: column; gap: 10px; }
+.columns a:hover { text-decoration: underline; }
+.wordmark {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(64px, 19vw, 300px); line-height: 1; color: rgba(22, 20, 18, 0.08);
+  text-align: center; margin-top: 48px; white-space: nowrap;
+}
+.copy { font-size: 12px; opacity: 0.7; }

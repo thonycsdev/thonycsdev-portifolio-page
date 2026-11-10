@@ -1,0 +1,9 @@
+.marquee { overflow: hidden; }
+.track { display: flex; width: max-content; animation: scroll 40s linear infinite; }
+.group { display: flex; }
+
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; }
+}

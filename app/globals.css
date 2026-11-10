@@ -1,0 +1,47 @@
+/* Design tokens, reset and shared utilities. Component styles live next to each component. */
+
+:root {
+  --cream: #fbf3e4;
+  --paper: #fffaf0;
+  --ink: #161412;
+  --green: #6e8f47;
+  --orange: #e8430f;
+  --blue: #2f6fd6;
+  --pink: #f38cc8;
+  --purple: #5e1438;
+  --yellow: #efb33f;
+  --gutter: clamp(16px, 4vw, 48px);
+  --font-mono: ui-monospace, Menlo, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream) radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px) 0 0 / 22px 22px;
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+h2, h3 { font-family: var(--font-serif), Georgia, serif; font-weight: 400; }
+h2 { font-size: clamp(32px, 5vw, 56px); line-height: 1.05; max-width: 12ch; }
+
+/* accent backgrounds: one per `Accent` in content/types.ts */
+.bg-green { background: var(--green); }
+.bg-orange { background: var(--orange); }
+.bg-blue { background: var(--blue); }
+.bg-pink { background: var(--pink); }
+.bg-purple { background: var(--purple); }
+.bg-yellow { background: var(--yellow); }
+.bg-ink { background: var(--ink); }
+.rings { background-image: repeating-radial-gradient(circle, transparent 0 18px, rgba(255, 255, 255, 0.08) 18px 20px); }
+
+.btn {
+  display: inline-block; background: var(--ink); color: var(--cream);
+  padding: 10px 20px; border-radius: 999px; font-size: 14px; transition: transform 0.2s;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.eyebrow { font-size: 13px; opacity: 0.7; }
