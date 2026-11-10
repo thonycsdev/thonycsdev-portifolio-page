@@ -1,0 +1,4 @@
+.heading {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 16px; padding: 96px var(--gutter) 48px;
+}

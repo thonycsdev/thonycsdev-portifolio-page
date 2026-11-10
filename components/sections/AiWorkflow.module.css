@@ -1,0 +1,6 @@
+.sub { max-width: 52ch; font-size: 15px; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 0 var(--gutter); }
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}

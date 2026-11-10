@@ -1,0 +1,16 @@
+.card {
+  background: var(--paper); color: var(--ink); text-align: left;
+  border-radius: 16px; padding: 16px 20px 20px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25); font-size: clamp(12px, 1.4vw, 16px);
+  width: max-content; max-width: 90vw;
+}
+.card pre { font-family: var(--font-mono); line-height: 1.6; }
+
+.dots { display: flex; gap: 6px; margin-bottom: 12px; }
+.dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--orange); }
+.dots i:nth-child(2) { background: var(--yellow); }
+.dots i:nth-child(3) { background: var(--green); }
+
+.keyword { color: var(--purple); font-weight: 700; }
+.string { color: var(--orange); }
+.type { color: var(--blue); }
