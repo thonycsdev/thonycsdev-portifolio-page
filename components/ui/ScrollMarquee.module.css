@@ -1,0 +1,10 @@
+.viewport {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.viewport::-webkit-scrollbar { display: none; }
+.dragging { cursor: grabbing; user-select: none; }
+.track { display: flex; width: max-content; }
+.group { display: flex; }
