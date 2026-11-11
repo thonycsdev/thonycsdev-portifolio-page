@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./ScrollMarquee.module.css";
 
 type ScrollMarqueeProps = {
@@ -12,16 +12,50 @@ type ScrollMarqueeProps = {
 
 // Like Marquee, but built on native horizontal scroll so users can take over with
 // wheel/trackpad, mouse drag or touch. Auto-scroll pauses while they interact.
+// The content is repeated enough times that the scroll position never reaches an edge:
+// whenever it gets within one loop of either side it jumps back by exactly one loop,
+// which looks identical, so scrolling goes around forever in both directions.
 export function ScrollMarquee({ children, className = "", durationSeconds = 40, resumeDelayMs = 2500 }: ScrollMarqueeProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
+  const groupRef = useRef<HTMLDivElement>(null);
+  const [copies, setCopies] = useState(4);
+
+  useEffect(() => {
+    const el = viewportRef.current;
+    const group = groupRef.current;
+    if (!el || !group) return;
+    // One loop of buffer on each side of the visible area, plus a spare one.
+    const update = () => {
+      if (group.offsetWidth > 0) setCopies(Math.ceil(el.clientWidth / group.offsetWidth) + 3);
+    };
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    observer.observe(group);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const el = viewportRef.current;
     if (!el) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const loopWidth = () => el.scrollWidth / 2;
+    const loopWidth = () => groupRef.current?.offsetWidth ?? 0;
 
+    const normalize = (value: number) => {
+      const width = loopWidth();
+      if (width <= 0) return value;
+      const max = el.scrollWidth - el.clientWidth;
+      while (value < width) value += width;
+      while (value > max - width && value - width >= width) value -= width;
+      return value;
+    };
+
+    // Re-centre by whole loops (visually identical) so the next loop jump is a full loop
+    // away in either direction. Runs again whenever the number of copies changes.
+    if (loopWidth() > 0) {
+      const middle = (el.scrollWidth - el.clientWidth) / 2;
+      el.scrollLeft = normalize(el.scrollLeft + Math.round((middle - el.scrollLeft) / loopWidth()) * loopWidth());
+    }
     // scrollLeft may be rounded to whole pixels, so the sub-pixel position is tracked here.
     let position = el.scrollLeft;
     let paused = false;
@@ -31,11 +65,6 @@ export function ScrollMarquee({ children, className = "", durationSeconds = 40, 
     let resumeTimer: number | undefined;
     let frame = 0;
     let lastTime = 0;
-
-    const wrap = (value: number) => {
-      const width = loopWidth();
-      return width > 0 ? ((value % width) + width) % width : value;
-    };
 
     const pause = () => {
       paused = true;
@@ -55,17 +84,16 @@ export function ScrollMarquee({ children, className = "", durationSeconds = 40, 
       const elapsed = lastTime ? (time - lastTime) / 1000 : 0;
       lastTime = time;
       if (!paused) {
-        position = wrap(position + (loopWidth() / durationSeconds) * elapsed);
+        position = normalize(position + (loopWidth() / durationSeconds) * elapsed);
         el.scrollLeft = position;
       }
       frame = requestAnimationFrame(tick);
     };
 
     const onScroll = () => {
-      if (!paused) return;
-      const width = loopWidth();
-      if (el.scrollLeft >= width) el.scrollLeft -= width;
-      else if (el.scrollLeft <= 0) el.scrollLeft += width;
+      if (!paused || drag) return;
+      const next = normalize(el.scrollLeft);
+      if (next !== el.scrollLeft) el.scrollLeft = next;
     };
 
     const onPointerEnter = (event: PointerEvent) => {
@@ -94,7 +122,10 @@ export function ScrollMarquee({ children, className = "", durationSeconds = 40, 
         drag.moved = true;
         el.classList.add(styles.dragging);
       }
-      el.scrollLeft = wrap(drag.startScroll - dx);
+      const target = drag.startScroll - dx;
+      const next = normalize(target);
+      drag.startScroll += next - target;
+      el.scrollLeft = next;
     };
 
     const onPointerUp = (event: PointerEvent) => {
@@ -152,13 +183,16 @@ export function ScrollMarquee({ children, className = "", durationSeconds = 40, 
       el.removeEventListener("touchcancel", onTouchEnd);
       el.removeEventListener("wheel", onWheel);
     };
-  }, [durationSeconds, resumeDelayMs]);
+  }, [copies, durationSeconds, resumeDelayMs]);
 
   return (
     <div ref={viewportRef} className={`${styles.viewport} ${className}`}>
       <div className={styles.track}>
-        <div className={styles.group}>{children}</div>
-        <div className={styles.group} aria-hidden>{children}</div>
+        {Array.from({ length: copies }, (_, i) => (
+          <div key={i} ref={i === 0 ? groupRef : undefined} className={styles.group} aria-hidden={i > 0 || undefined}>
+            {children}
+          </div>
+        ))}
       </div>
     </div>
   );
