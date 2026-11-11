@@ -1,12 +1,12 @@
 import { AccentCard } from "@/components/ui/AccentCard";
-import { Marquee } from "@/components/ui/Marquee";
+import { ScrollMarquee } from "@/components/ui/ScrollMarquee";
 import { experiences } from "@/content/experience";
 import styles from "./Experience.module.css";
 
 export function Experience() {
   return (
     <section id="experience" aria-label="Experience">
-      <Marquee>
+      <ScrollMarquee>
         {experiences.map((job) => (
           <AccentCard
             key={`${job.company}-${job.period}`}
@@ -18,7 +18,7 @@ export function Experience() {
             text={job.summary}
           />
         ))}
-      </Marquee>
+      </ScrollMarquee>
     </section>
   );
 }
